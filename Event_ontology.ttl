@@ -15,7 +15,7 @@
 @prefix sumo: <http://www.ontologyportal.org/translations/SUMO.owl.txt#> .
 @prefix time1: <http://www.w3.org/2006/time> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 sem:Object a owl:Class ;
     rdfs:label "Object" ;
@@ -41,6 +41,7 @@ sem:Object a owl:Class ;
     skos:narrowMatch cs:agent ;
     rdfs:domain sem:Event.
     
+
     
 sem:hasPlace a owl:ObjectProperty ;
     rdfs:label "has Place" ;
@@ -51,6 +52,7 @@ sem:hasPlace a owl:ObjectProperty ;
     skos:narrowMatch lode:inSpace ;
     rdfs:domain sem:Event.
     
+    
 sem:hasTime a owl:ObjectProperty ;
     rdfs:label "has Time" ;
     rdfs:comment "Has time is used to indicate at which time an Event took place or when a property under the Temporary Constraint is valid. Has time points to a symbolic representation of time, which allows semantic relations between time resources. (see http://www.w3.org/TR/owl-time/)" ;
@@ -58,6 +60,7 @@ sem:hasTime a owl:ObjectProperty ;
     rdfs:subPropertyOf sem:eventProperty ;
     skos:broadMatch lode:atTime ;
     rdfs:domain sem:Event.
+    
 
 
 sem:Place a owl:Class ;
@@ -135,15 +138,33 @@ HERO:Hero a rdfs:Class;
 HERO:Villain a rdfs:Class;
 	rdfs:subClassOf sem:Actor. 
 
-HERO:Mentor a rdfs:Class;
-	rdfs:subClassOf sem:Actor.
+
 	
+
+
+HERO:HeroAlly a rdfs:Class;
+	rdfs:subClassOf sem:Actor.
+
+HERO:HeroLover a rdfs:Class;
+	rdfs:subClassOf HERO:HeroAlly.
+
+HERO:Mentor a rdfs:Class;
+	rdfs:subClassOf HERO:HeroAlly.
+
+HERO:VillainAlly a rdfs:Class;
+	rdfs:subClassOf sem:Actor.
 
 HERO:Title a rdfs:Class.
 
 HERO:Power a rdfs:Class.
 
+HERO:Threat a rdfs:Class.
+
 HERO:House a rdfs:Class.
+
+HERO:Celebration a rdfs:Class.
+
+HERO:Challenge a rdfs:Class.
 
 #GENERIC EVENT PROPERTIES DECLARATION 
 
@@ -182,9 +203,9 @@ HERO:Event_1 a HERO:OrdinaryWorld; #instanciated
 	HERO:journeyStage "1";
 	rdfs:label "Ordinary World presentation". 
 	
-#2 THREAT TO SAFETY
+#2 CALL TO ADVENTURE
 
-HERO:CallToAdventure rdfs:subClass sem:Event.
+HERO:CallToAdventure rdfs:subClassOf sem:Event.
 
 
 HERO:villain  a rdfs:Property;
@@ -193,17 +214,21 @@ HERO:villain  a rdfs:Property;
 
 
 HERO:Threatens a rdfs:Property;
+	rdfs:range HERO:Threat;
+	rdfs:domain HERO:CallToAdventure.
+
+HERO:ThreatenedActor a rdfs:Property;
 	rdfs:range sem:Actor;
 	rdfs:domain HERO:CallToAdventure.
 
 	
-HERO:Event_2 a HERO:ThreatToSafety; #instanciated 
+HERO:Event_2 a HERO:CallToAdventure; #instanciated 
 	HERO:journeyStage "2";
 	rdfs:label "Villain threatens the safety of somebody". 
 
 #3 REFUSAL OF THE CALL
 
-HERO:RefusalOfCall rdfs:subClass sem:Event.
+HERO:RefusalOfCall rdfs:subClassOf sem:Event.
 
 #hasactor is hero
 
@@ -225,7 +250,7 @@ HERO:Event_3 a HERO:RefusalOfCall; #instanciated
 HERO:MeetingTheMentor rdfs:subClassOf sem:Event .
 
 HERO:meetsMentor a rdfs:Property;
-	rdfs:range sem:Actor;
+	rdfs:range HERO:Mentor;
 	rdfs:domain HERO:MeetingTheMentor.
 	
 HERO:powerLearned a rdfs:Property;
@@ -243,10 +268,139 @@ HERO:Event_4 a HERO:MeetingTheMentor; #instanciated
 
 #6 TESTS ALLIES AND ENEMIES
 
-HERO:Challenge rdfs:subClassOf sem:Event .
+HERO:TestAlly rdfs:subClassOf sem:Event .
+
+HERO:heroAlly a rdfs:Property;
+	rdfs:range sem:HeroAlly;
+	rdfs:domain HERO:TestAlly  .
+
+HERO:villainAlly a rdfs:Property;
+	rdfs:range sem:VillainAlly;
+	rdfs:domain HERO:TestAlly  .
+
+HERO:challenge a rdfs:Property;
+	rdfs:range HERO:Challenge;
+	rdfs:domain HERO:TestAlly.
+
+	
+HERO:victory a rdfs:Property;
+	rdfs:range rdfs:boolean;
+	rdfs:domain HERO:TestAlly.
+	
+	
+HERO:Event_6 a HERO:TestAlly; #instanciated 
+	HERO:journeyStage "6";
+	rdfs:label "The ally help the hero to face the challenge against the Villain and its ally".  
+
+
+#7 Approach to inmost Cave
+#changed:: love drama to be involved
+
+HERO:InmostCave rdfs:subClassOf sem:Event .
+
+
+HERO:InLovewith a rdfs:Property;
+	rdfs:range sem:HeroLover;
+	rdfs:domain HERO:InmostCave  .
+
+
+HERO:loverThreatenedby a rdfs:Property;
+	rdfs:range HERO:Threat;
+	rdfs:domain HERO:InmostCave  .
 
 
 
+HERO:Event_7 a HERO:InmostCave; #instanciated 
+	HERO:journeyStage "7";
+	rdfs:label "The hero falls in love with (the ally?) or someone and this someone is threatened".  
+
+#8 Ordeal
+
+HERO:Ordeal rdfs:subClassOf sem:Event .
+
+HERO:herofights a rdfs:Property;
+	rdfs:range HERO:Villain;
+	rdfs:domain HERO:Ordeal  .
+
+
+HERO:herousepower a rdfs:Property;
+	rdfs:range HERO:Power;
+	rdfs:domain HERO:Ordeal  .
+
+HERO:enemyusepower a rdfs:Property;
+	rdfs:range HERO:Power;
+	rdfs:domain HERO:Ordeal  .
+
+
+HERO:herogetsinjured a rdfs:Property;
+	rdfs:range xsd:boolean;
+	rdfs:domain HERO:Ordeal  .
+
+
+
+HERO:Event_8 a HERO:Ordeal; #instanciated 
+	HERO:journeyStage "8";
+	rdfs:label "Hero fights the enemy with powers".  
+
+#9 Reward, seizing the sword
+#destroys the object --> why???
+
+#10 The Road Back
+#here I dont know why there should be another fight just here -> lets make that hero saves lover
+
+HERO:Back rdfs:subClassOf sem:Event .
+
+
+
+HERO:villainrevenge a rdfs:Property;
+	rdfs:range HERO:Threat;
+	rdfs:domain HERO:Back .
+
+HERO:Event_10 a HERO:Back; #instanciated 
+	HERO:journeyStage "10";
+	rdfs:label "Villain revenges hero with another threaten".  
+
+
+#11 Resurrection 
+
+HERO:Resurrection rdfs:subClassOf sem:Event .
+
+
+HERO:heroresponsestorevenge a rdfs:Property;
+	rdfs:range HERO:Threat;
+	rdfs:domain HERO:Resurrection .
+
+
+HERO:herosaves a rdfs:Property;
+	rdfs:range HERO:HeroLover;
+	rdfs:domain HERO:Resurrection .
+
+HERO:Event_11 a HERO:Resurrection; #instanciated 
+	HERO:journeyStage "11";
+	rdfs:label "Hero response to revenge and save the lover".  
+
+#12 end of the story -party
+
+HERO:Party rdfs:subClassOf sem:Event .
+
+
+HERO:celebratesvictory a rdfs:Property;
+	rdfs:range HERO:Celebration;
+	rdfs:domain HERO:Party .
+
+
+HERO:partywith a rdfs:Property;
+	rdfs:range HERO:HeroAlly;
+	rdfs:domain HERO:Party .
+
+
+HERO:Heropersemprefeliceecontentocon a rdfs:Property;
+	rdfs:range HERO:HeroLover;
+	rdfs:domain HERO:Party .
+
+HERO:Event_12 a HERO:Party; #instanciated 
+	HERO:journeyStage "12";
+	rdfs:label "Hero throws a party".  
 
 HERO:Beatrice a sem:Actor .
 
@@ -254,7 +408,11 @@ HERO:Becky a sem:Actor .
 
 HERO:Bernadette a sem:Actor .
 
-HERO:Betty a HERO:Character .
+HERO:Beth a sem:Actor .
+
+HERO:Bethany a sem:Actor .
+
+HERO:Betty a sem:Actor .
 
 HERO:Betsy a HERO:Character .
 

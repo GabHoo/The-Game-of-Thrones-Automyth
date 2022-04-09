@@ -10,20 +10,22 @@ def random_pick(ist_class):
 
     g=Graph()
     g.parse("./Event_ontology.ttl") 
-    sem = Namespace("http://semanticweb.cs.vu.nl/2009/11/sem/") #RIGHT NOW I HAD A BUNCH OF INSTANCES IN THIS TURTLE SO I AM USING THE SAME BUT IDEALLY HERE THERE WOULD BE THE OTHERNE
+    sem = Namespace("http://semanticweb.cs.vu.nl/2009/11/sem/") #RIGHT NOW I HAD A BUNCH OF INSTANCES IN THIS TURTLE SO I AM USING THE SAME BUT IDEALLY HERE THERE WOULD BE THE OTHERO
     list_c=[]
     for char in g.subjects(RDF.type, sem.Actor):
         list_c.append(char)
-    print(list_c)
+    
 
     x=ist_class.split('/')[-1]
-    print(x)
+    
     if x=='Actor':
         return(random.choice(list_c)) 
     elif x=='Location':
        return(random.choice(list_c))
     elif x=='Power':
        return(random.choice(list_c)) #!!!! UNTIL THERE IS LIST OF POWERS
+    else:
+       return(random.choice(list_c)) 
 
 def main(argv, arc):
     
@@ -38,7 +40,7 @@ def main(argv, arc):
     properties=[]
     for s,p,o in g.triples((None, RDFS.domain, sem.Event)):
         properties.append(s)
-    print(properties)
+    
 
     #Getting all subclasses, which are all the specific events
     subEvents=[]
@@ -47,25 +49,25 @@ def main(argv, arc):
     
     story = Graph() #creates the graph of the story
 
-    i_properties=properties #list with generic Event properties + upcoming specific event properties
+    #i_properties=properties #list with generic Event properties + upcoming specific event properties
 
+    print("list of subevents is:", subEvents)
+    for i in subEvents:
+        print("Considering event",i)
 
-    i=subEvents[1] #GOING TO CHANGE THIS INTO: for i in subEvents:
-    print("Considering event",i)
-
-    #NOW we are considering one subevent at a time
-    instance_i = g.value(predicate = RDF.type, object=HERO.MeetingTheMentor, any=False)
-    story += g.triples((instance_i, None, None))
-    
-    for s,p,o in g.triples((None,RDFS.domain,i)): #takiing all the specific event properties and adding them one by one to the all property list
-        print("considering",s)
-        i_properties.append(s)
-        for s1,p1,o1 in g.triples((s,RDFS.range,None)):
-            print(s1,p1,o1) 
-            print("o1",o1)
-            ist=random_pick(o1)
-            print(ist)
-            story.add((instance_i, s,ist ))
+        #NOW we are considering one subevent at a time
+        instance_i = g.value(predicate = RDF.type, object=i, any=False)
+        print("found istance of ", i,": ", instance_i)
+        story += g.triples((instance_i, None, None))
+        
+        for s,p,o in g.triples((None,RDFS.domain,i)): #takiing all the specific event properties and adding them one by one to the all property list
+            print("       considering",s)
+            
+            for s1,p1,o1 in g.triples((s,RDFS.range,None)):
+                print("       range: ",o1) 
+                ist=random_pick(o1)
+                
+                story.add((instance_i, s,ist ))
 
     story.serialize("./story.ttl")
 
