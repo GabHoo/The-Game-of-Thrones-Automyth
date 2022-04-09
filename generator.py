@@ -10,7 +10,7 @@ def random_pick(ist_class):
 
     g=Graph()
     g.parse("./Event_ontology.ttl") 
-    sem = Namespace("http://semanticweb.cs.vu.nl/2009/11/sem/")
+    sem = Namespace("http://semanticweb.cs.vu.nl/2009/11/sem/") #RIGHT NOW I HAD A BUNCH OF INSTANCES IN THIS TURTLE SO I AM USING THE SAME BUT IDEALLY HERE THERE WOULD BE THE OTHERNE
     list_c=[]
     for char in g.subjects(RDF.type, sem.Actor):
         list_c.append(char)
