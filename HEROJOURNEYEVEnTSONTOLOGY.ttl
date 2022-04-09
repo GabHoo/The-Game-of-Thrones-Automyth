@@ -1,0 +1,162 @@
+@base <http://hero_ontology/> .
+@prefix HERO: <http://hero_ontology/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
+#CLASS DECLARATION
+
+HERO:Event a rdfs:Class .
+	
+HERO:EventType a rdfs:Class.
+
+HERO:Time a rdfs:Class.
+HERO:Locaton a rdfs:Class.
+HERO:EventWorld a rdfs:Class.
+
+HERO:Hero a rdfs:Class;
+	rdfs:subClassOf HERO:Character.
+HERO:Villain a rdfs:Class;
+	rdfs:subClassOf HERO:Character. 
+
+HERO:Mentor a rdfs:Class;
+	rdfs:subClassOf HERO:Character.
+	
+HERO:KeyElement a rdfs:Class. #This the object of the main rdfsSTAr TRIPLE. [PROPLLY USELESS]
+HERO:Character a rdfs:Class.
+HERO:Title
+
+HERO:Power a rdfs:class.
+
+#GENERIC EVENT PROPERTIES DECLARATION 
+
+HERO:eventType a rdfs:Property; #This (and the class EventType) might be to specify what sub event but we also use the actual name of the subclass for it.
+	rdfs:Range HERO:EventType ;
+	rdfs:domain HERO:Event .
+
+HERO:journeyStage a rdfs:Property; #This is to tell which step of the journey we are in. Is gonna be numeric
+	rdfs:Range rdfs:Literal ;
+	rdfs:domain HERO:Event . #Actually has a subevent as domain but should go anyway right
+
+
+HERO:InWorld a rdfs:Property; #EventrypeWorlds is gonna be instaancieted with ordinary or immaginary world only and will tell where we are.
+	rdfs:range HERO:EventWorld ;
+	rdfs:domain HERO:EventType .
+
+
+HERO:hasTime a rdfs:Property ; 
+	rdfs:range HERO:Times ;
+	rdfs:domain HERO:Event .
+	
+HERO:hasPlace a rdfs:Property ;
+	rdfs:range HERO:Location ;
+	rdfs:domain HERO:Event .
+	
+HERO:hasActor a rdfs:Property ; #THis could be functional property?
+	rdfs:range HERO:Charachter ;
+	rdfs:domain HERO:Event .
+	
+#HERO:predicate a rdfs:Property ; #this is to store the string which is gonna be the predicate of rdfstar main triple
+	#rdfs:range rdfs:Literal ;
+	#rdfs:domain HERO:Event .
+
+
+	
+#SUBCLASSES DEFINITION. THOSE AR 12 DIFFERENT SUBLCASSES NOT 12 istances of ONE SUBCLASS
+
+#1  ORDINARYWORLD
+HERO:OrdinaryWorld rdfs:subClassOf HERO:Event .
+HERO:hasTitle a rdfs:Property ;
+	rdfs:range HERO:Title ;
+	rdfs:domain HERO:OrdinaryWorld .
+
+
+HERO:hasHouse a rdfs:Property ;
+	rdfs:range HERO:House ;
+	rdfs:domain HERO:OrdinaryWorld .
+	
+	
+HERO:Event_1 a HERO:OrdinaryWorld; #instanciated 
+	HERO:journeyStage "1";
+	rdfs:label "Ordinary World presentation". 
+	
+#2 THREAT TO SAFETY
+
+HERO:ThreatToSafety rdfs:subClass :Event.
+
+HERO:Threatens a rdfs:Property;
+	rdfs:range HERO:Character;
+	rdfs:domain HERO:ThreatToSafety.
+
+HERO:villain  a rdfs:Property;
+	rdfs:range HERO:Villain;
+	rdfs:domain HERO:ThreatToSafety.
+
+	
+HERO:Event_2 a HERO:ThreatToSafety; #instanciated 
+	HERO:journeyStage "2";
+	rdfs:label "Villain threatens the safety of somebody". 
+
+
+
+#6 MEETING THE MENTOR
+HERO:MeetingTheMentor rdfs:subClassOf HERO:Event .
+
+HERO:meetsMentor a rdfs:Property;
+	rdfs:range HERO:Character;
+	rdfs:domain HERO:MeetingTheMentor.
+HERO:powerLearned a rdfs:Property;
+	rdfs:range HERO:Power;
+	rdfs:domain HERO:MeetingTheMentor.
+	
+HERO:Event_4 a HERO:MeetingTheMentor; #instanciated 
+	HERO:journeyStage "4";
+	rdfs:label "Meeting the Mentor".  
+
+
+
+
+
+HERO:Beatrice a HERO:Character .
+
+HERO:Becky a HERO:Character .
+
+HERO:Bernadette a HERO:Character .
+
+HERO:Beth a HERO:Character .
+
+HERO:Bethany a HERO:Character .
+
+HERO:Betty a HERO:Character .
+
+HERO:Betsy a HERO:Character .
+
+HERO:Beverly a HERO:Character .
+
+HERO:Bonnie a HERO:Character .
+
+HERO:Brianna a HERO:Character .
+
+HERO:Bridget a HERO:Character .
+
+HERO:Brooke a HERO:Character .
+
+HERO:Carly a HERO:Character .
+
+HERO:Carol a HERO:Character .
+
+HERO:Carrie a HERO:Character .
+
+HERO:Catherine a HERO:Character .
+
+HERO:Cathy a HERO:Character .
+
+HERO:Cecilia a HERO:Character .
+
+HERO:Celeste a HERO:Character .
+
+HERO:Lucia a HERO:Character.
+HERO:Portobello a HERO:Location.
+	
+
+	

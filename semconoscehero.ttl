@@ -1,0 +1,293 @@
+@prefix cidoc: <http://www8.informatik.uni-erlangen.de/IMMD8/Services/cidoc-crm/erlangen-crm_090330_5_0_1.owl#> .
+@prefix cs: <http://www.kulttuurisampo.fi/ebkr/> .
+@prefix cyc: <http://sw.opencyc.org/2009/04/07/concept/en/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dolce: <http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#> .
+@prefix eo: <http://purl.org/NET/c4dm/event.owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lode: <http://linkedevents.org/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sumo: <http://www.ontologyportal.org/translations/SUMO.owl.txt#> .
+@prefix time1: <http://www.w3.org/2006/time> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+
+sem:Object a owl:Class ;
+    rdfs:label "Object" ;
+    rdfs:comment "Objects are passive, inanimate Actors." ;
+    rdfs:subClassOf sem:Actor ;
+    skos:broadMatch cyc:SomethingExisting,
+        dolce:endurant ;
+    skos:closeMatch sumo:Object,
+        cidoc:E19.Physical_Object,
+        cidoc:E21.Person ;
+    skos:narrowMatch eo:Factor,
+        eo:Product,
+        dcmitype:PhysicalObject,
+        dcterms:PhysicalResource .
+        
+        
+ sem:hasActor a owl:ObjectProperty ;
+    rdfs:label "has Actor" ;
+    rdfs:comment "Has actor is used to state which Actors or Objects participate in an Event." ;
+    rdfs:range sem:Actor ;
+    rdfs:subPropertyOf sem:eventProperty ;
+    skos:exactMatch lode:involved ;
+    skos:narrowMatch cs:agent .
+    
+    
+sem:hasPlace a owl:ObjectProperty ;
+    rdfs:label "has Place" ;
+    rdfs:comment "Has place is used to state in which Place(s) an Event happened. Coordinates can be attached to the Place with the W3C Geospatial Vocabulary (http://www.w3.org/2005/Incubator/geo/XGR-geo-20071023/)." ;
+    rdfs:range sem:Place ;
+    rdfs:subPropertyOf sem:eventProperty ;
+    skos:exactMatch cs:place ;
+    skos:narrowMatch lode:inSpace .
+    
+    
+sem:hasTime a owl:ObjectProperty ;
+    rdfs:label "has Time" ;
+    rdfs:comment "Has time is used to indicate at which time an Event took place or when a property under the Temporary Constraint is valid. Has time points to a symbolic representation of time, which allows semantic relations between time resources. (see http://www.w3.org/TR/owl-time/)" ;
+    rdfs:range sem:Time ;
+    rdfs:subPropertyOf sem:eventProperty ;
+    skos:broadMatch lode:atTime .
+    
+
+
+sem:Place a owl:Class ;
+    rdfs:label "Place" ;
+    rdfs:comment "Places are locations where an Event happens. They do not need to be physical places and hence do not necessarily need coordinates. Neither do they need to have any significance apart from them being the location of an Event." ;
+    rdfs:subClassOf sem:Core ;
+    skos:closeMatch dcterms:Location,
+        cyc:EnduringThing-Localized,
+        sumo:GeographicArea,
+        cidoc:E53.Place ;
+    skos:narrowMatch dolce:PhysicalRegion,
+        wgs84:SpatialThing .
+
+sem:Time a owl:Class ;
+    rdfs:label "Time" ;
+    rdfs:comment "Time contains symbolic representations of when an Event took place. Time instances do not necessarily need to have a timestamp associated with them. The Time class exists to represent semantics of time, e.g. that one thing happens before another, even though the exact timestamps are unknown." ;
+    rdfs:subClassOf sem:Core ;
+    skos:broadMatch time1:TemporalEntity .
+    
+    
+sem:Actor a owl:Class ;
+    rdfs:label "Actor" ;
+    rdfs:comment """Actors are entities that take part in an Event, either actively or passively. Actors do not necessarily have to be sentient. They can also be objects. Actors are a thing, animate or inanimate, physical or non-physical.
+""" ;
+    rdfs:subClassOf sem:Authority,
+        sem:Core ;
+    skos:broadMatch cyc:SomethingExisting,
+        dolce:endurant ;
+    skos:closeMatch dcterms:Agent,
+        dcterms:AgentClass,
+        cyc:Agent-Generic,
+        sumo:Agent,
+        cidoc:E39.Actor,
+        foaf:Agent .
+        
+sem:Event a owl:Class ;
+    rdfs:label "Event" ;
+    rdfs:comment "Events are things that happen. This comprises everything from historical events to web site sessions and mythical journeys. Event is the central class of SEM." ;
+    rdfs:subClassOf sem:Core ;
+    skos:broadMatch lode:Event,
+        eo:Event ;
+    skos:closeMatch dcmitype:Event,
+        cyc:Situation,
+        dolce:perdurant,
+        sumo:Process,
+        cidoc:E5.Event .
+        
+sem:Core a owl:Class ;
+    rdfs:label "Core" ;
+    rdfs:comment "The SEM Core class contains all entities that make up the context of an event: Events, Actors, Places, Times. This class is meant to be extended for each application domain." .                
+        
+           
+        
+        
+        
+        
+#hero here we AREEEEE
+
+
+@base <http://hero_ontology/> .
+@prefix HERO: <http://hero_ontology/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
+#CLASS DECLARATION
+
+
+
+HERO:EventWorld a rdfs:Class.
+
+HERO:Hero a rdfs:Class;
+	rdfs:subClassOf sem:Actor.
+	
+HERO:Villain a rdfs:Class;
+	rdfs:subClassOf sem:Actor. 
+
+HERO:Mentor a rdfs:Class;
+	rdfs:subClassOf sem:Actor.
+	
+
+HERO:Title a rdfs:Class.
+
+HERO:Power a rdfs:Class.
+
+HERO:House a rdfs:Class.
+
+#GENERIC EVENT PROPERTIES DECLARATION 
+
+
+HERO:journeyStage a rdfs:Property; #This is to tell which step of the journey we are in. Is gonna be numeric
+	rdfs:Range rdfs:Literal ;
+	rdfs:domain HERO:Event . #Actually has a subevent as domain but should go anyway right
+
+
+
+
+	
+#HERO:predicate a rdfs:Property ; #this is to store the string which is gonna be the predicate of rdfstar main triple
+	#rdfs:range rdfs:Literal ;
+	#rdfs:domain HERO:Event .
+
+
+	
+#SUBCLASSES DEFINITION. THOSE AR 12 DIFFERENT SUBLCASSES NOT 12 istances of ONE SUBCLASS
+
+#1  ORDINARYWORLD
+HERO:OrdinaryWorld rdfs:subClassOf sem:Event;
+                   rdfs:label "First stage of the story - Ordinary world presentation".
+                   
+HERO:hasTitle a rdfs:Property ;
+	rdfs:range HERO:Title ;
+	rdfs:domain HERO:OrdinaryWorld .
+
+
+HERO:hasHouse a rdfs:Property ;
+	rdfs:range HERO:House ;
+	rdfs:domain HERO:OrdinaryWorld .
+	
+	
+HERO:Event_1 a HERO:OrdinaryWorld; #instanciated 
+	HERO:journeyStage "1";
+	rdfs:label "Ordinary World presentation". 
+	
+#2 THREAT TO SAFETY
+
+HERO:CallToAdventure rdfs:subClass sem:Event.
+
+
+HERO:villain  a rdfs:Property;
+	rdfs:range HERO:Villain;
+	rdfs:domain HERO:CallToAdventure.
+
+
+HERO:Threatens a rdfs:Property;
+	rdfs:range sem:Actor;
+	rdfs:domain HERO:CallToAdventure.
+
+	
+HERO:Event_2 a HERO:ThreatToSafety; #instanciated 
+	HERO:journeyStage "2";
+	rdfs:label "Villain threatens the safety of somebody". 
+
+#3 REFUSAL OF THE CALL
+
+HERO:RefusalOfCall rdfs:subClass sem:Event.
+
+#hasactor is hero
+
+HERO:refusesToFight   a rdfs:Property;
+	rdfs:range HERO:Villain;
+	rdfs:domain HERO:RefusalOfCall.
+	
+HERO:scaredOf   a rdfs:Property;
+	rdfs:range HERO:Power; #hero scaredd ofpower of villain and thus rfuse to fight 
+	rdfs:domain HERO:RefusalOfCall.
+	
+HERO:Event_3 a HERO:RefusalOfCall; #instanciated 
+	HERO:journeyStage "3";
+	rdfs:label "Hero refuses to help saving the target and the world". 	
+	
+		
+
+#4 MEETING THE MENTOR
+HERO:MeetingTheMentor rdfs:subClassOf sem:Event .
+
+HERO:meetsMentor a rdfs:Property;
+	rdfs:range sem:Actor;
+	rdfs:domain HERO:MeetingTheMentor.
+	
+HERO:powerLearned a rdfs:Property;
+	rdfs:range HERO:Power;
+	rdfs:domain HERO:MeetingTheMentor.
+	
+#motivatonal quotes?????	
+	
+HERO:Event_4 a HERO:MeetingTheMentor; #instanciated 
+	HERO:journeyStage "4";
+	rdfs:label "Meeting the Mentor".  
+
+
+#5 CROSSING THE THRESHOLD - CHANGE OF LOCATION, DO WE NEED THAT???
+
+#6 TESTS ALLIES AND ENEMIES
+
+HERO:Challenge rdfs:subClassOf sem:Event .
+
+
+
+
+
+HERO:Beatrice a HERO:Character .
+
+HERO:Becky a HERO:Character .
+
+HERO:Bernadette a HERO:Character .
+
+HERO:Beth a HERO:Character .
+
+HERO:Bethany a HERO:Character .
+
+HERO:Betty a HERO:Character .
+
+HERO:Betsy a HERO:Character .
+
+HERO:Beverly a HERO:Character .
+
+HERO:Bonnie a HERO:Character .
+
+HERO:Brianna a HERO:Character .
+
+HERO:Bridget a HERO:Character .
+
+HERO:Brooke a HERO:Character .
+
+HERO:Carly a HERO:Character .
+
+HERO:Carol a HERO:Character .
+
+HERO:Carrie a HERO:Character .
+
+HERO:Catherine a HERO:Character .
+
+HERO:Cathy a HERO:Character .
+
+HERO:Cecilia a HERO:Character .
+
+HERO:Celeste a HERO:Character .
+
+HERO:Lucia a HERO:Character.
+HERO:Portobello a HERO:Location.
+	
+
+	        
