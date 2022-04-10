@@ -59,17 +59,15 @@ def main(argv, arc):
         print("Considering event",i)
         #NOW we are considering one subevent at a time
 
-        #WE FIRST ADD THE ALREADY EXISTING INSTANCE TO THE STORY AND ITS TRIPLES(EVENT_N)
+        #FIRST ADD THE ALREADY EXISTING INSTANCE TO THE STORY AND ITS TRIPLES(EVENT_N)
         instance_i = g.value(predicate = RDF.type, object=i, any=False)
         print("found istance of ", i,": ", instance_i)
         story += g.triples((instance_i, None, None))
         
         #THAN WE INSTANCIATE AND ADD TO STORY those that are common to every event
-        
         for (p,r) in properties:
             print(p)
-            if(p==URIRef("http://semanticweb.cs.vu.nl/2009/11/sem/hasActor")):
-                print("!!!!\n---\nputting hero")
+            if(p==URIRef("http://semanticweb.cs.vu.nl/2009/11/sem/hasActor")): #this is to make sure that the hero is always the same
                 story.add((instance_i, p,hero ))
             else:
                 story.add((instance_i, p,random_pick(r)))
