@@ -264,6 +264,16 @@ HERO:Event_4 a HERO:MeetingTheMentor; #instanciated
 
 
 #5 CROSSING THE THRESHOLD - CHANGE OF LOCATION, DO WE NEED THAT???
+HERO:CrossThreshold rdfs:subClassOf sem:Event .
+
+HER0:travelsTo a rdfs:subClassOf ;
+	rdfs:range sem:Place  ;
+	rdfs:domain HERO:CrossThreshold  .
+
+HERO:Event_5 a HERO:TestAlly; #instanciated
+	HERO:journeyStage "5";
+	rdfs:label "The hero decides to face the challenge.".
+
 
 #6 TESTS ALLIES AND ENEMIES
 
