@@ -142,8 +142,8 @@ HERO:Villain a rdfs:Class;
 HERO:HeroAlly a rdfs:Class;	
 	rdfs:subClassOf sem:Actor.
 
-HERO:HeroLover a rdfs:Class;
-	rdfs:subClassOf HERO:HeroAlly.
+#HERO:HeroLover a rdfs:Class;
+#	rdfs:subClassOf HERO:HeroAlly.
 
 HERO:Mentor a rdfs:Class;
 	rdfs:subClassOf HERO:HeroAlly.
@@ -155,13 +155,22 @@ HERO:Title a rdfs:Class.
 
 HERO:Power a rdfs:Class.
 
+
+HERO:EnemyPower a rdfs:Class;
+				rdfs:subClassOf HERO:Power.
+
+HERO:HeroPower a rdfs:Class;
+				rdfs:subClassOf HERO:Power.
+
 HERO:Threat a rdfs:Class. #This should be something like STEAL, KILL, KIDINAP, DESTROY
 
 HERO:House a rdfs:Class.
 
-HERO:Celebration a rdfs:Class.
+HERO:Feelings a rdfs:Class. #scare, fear, terror, hesitation, confidence, joy,
 
-HERO:Challenge a rdfs:Class.
+HERO:Celebration a rdfs:Class. #feast, dance, marriage, concert, freebeer, magicshow,
+
+#HERO:Challenge a rdfs:Class.
 
 #GENERIC EVENT PROPERTIES DECLARATION 
 
@@ -236,7 +245,7 @@ HERO:refusesToFight   a rdfs:Property;
 	rdfs:domain HERO:RefusalOfCall.
 	
 HERO:scaredOf   a rdfs:Property;
-	rdfs:range HERO:Power; #hero scaredd ofpower of villain and thus rfuse to fight 
+	rdfs:range HERO:EnemyPower; #hero scaredd ofpower of villain and thus rfuse to fight
 	rdfs:domain HERO:RefusalOfCall.
 	
 HERO:Event_3 a HERO:RefusalOfCall; #instanciated 
@@ -253,7 +262,7 @@ HERO:meetsMentor a rdfs:Property;
 	rdfs:domain HERO:MeetingTheMentor.
 	
 HERO:powerLearned a rdfs:Property;
-	rdfs:range HERO:Power;
+	rdfs:range HERO:HeroPower;
 	rdfs:domain HERO:MeetingTheMentor.
 	
 #motivatonal quotes?????	
@@ -266,30 +275,32 @@ HERO:Event_4 a HERO:MeetingTheMentor; #instanciated
 #5 CROSSING THE THRESHOLD - CHANGE OF LOCATION, DO WE NEED THAT???
 HERO:CrossThreshold rdfs:subClassOf sem:Event .
 
-HER0:travelsTo a rdfs:subClassOf ;
+HER0:travelsTo a rdfs:Property  ;
 	rdfs:range sem:Place  ;
 	rdfs:domain HERO:CrossThreshold  .
 
-HERO:Event_5 a HERO:TestAlly; #instanciated
+HERO:Event_5 a HERO:CrossThreshold; #instanciated
 	HERO:journeyStage "5";
-	rdfs:label "The hero decides to face the challenge.".
+	rdfs:label "The hero decides to face the villain and travels to the Place where the villain is.".
 
 
 #6 TESTS ALLIES AND ENEMIES
 
 HERO:TestAlly rdfs:subClassOf sem:Event .
 
-HERO:heroAlly a rdfs:Property;
+HERO:meetsAlly a rdfs:Property;
+	rdfs:label "The hero meets the ally that will help him face the challenge";
 	rdfs:range sem:HeroAlly;
 	rdfs:domain HERO:TestAlly  .
 
-HERO:villainAlly a rdfs:Property;
+HERO:Faces a rdfs:Property;
+	rdfs:label "The hero together with the ally faces the ally of the villain";
 	rdfs:range sem:VillainAlly;
 	rdfs:domain HERO:TestAlly  .
 
-HERO:challenge a rdfs:Property;
+"""HERO:challenge a rdfs:Property;
 	rdfs:range HERO:Challenge;
-	rdfs:domain HERO:TestAlly.
+	rdfs:domain HERO:TestAlly."""
 
 	
 HERO:victory a rdfs:Property;
@@ -299,7 +310,7 @@ HERO:victory a rdfs:Property;
 	
 HERO:Event_6 a HERO:TestAlly; #instanciated 
 	HERO:journeyStage "6";
-	rdfs:label "The ally help the hero to face the challenge against the Villain and its ally".  
+	rdfs:label "The ally help the hero to face the challenge against the Villain and its ally. it is a firt test".
 
 
 #7 Approach to inmost Cave
@@ -307,21 +318,29 @@ HERO:Event_6 a HERO:TestAlly; #instanciated
 
 HERO:InmostCave rdfs:subClassOf sem:Event .
 
+#HERO:InLovewith a rdfs:Property;
+#	rdfs:label "";
+#	rdfs:range HERO:HeroLover;
+#	rdfs:domain HERO:InmostCave  .
 
-HERO:InLovewith a rdfs:Property;
-	rdfs:range sem:HeroLover;
+HERO:feeling a rdfs:Property;
+	rdfs:label "The hero is arrived at the place where he will have to face the challenge and is overwhelmed by some feeling"	;
+	rdfs:range HERO:Feelings;
 	rdfs:domain HERO:InmostCave  .
 
 
-HERO:loverThreatenedby a rdfs:Property;
-	rdfs:range HERO:Threat;
-	rdfs:domain HERO:InmostCave  .
+
+#HERO:loverThreatenedby a rdfs:Property;
+#	rdfs:range HERO:Threat;
+#	rdfs:domain HERO:InmostCave  .
 
 
 
 HERO:Event_7 a HERO:InmostCave; #instanciated 
 	HERO:journeyStage "7";
-	rdfs:label "The hero falls in love with (the ally?) or someone and this someone is threatened".  
+	#rdfs:label "The hero falls in love with (the ally?) or someone and this someone is threatened".
+	rdfs:label "The hero is arrived at the location to face the villain and feel strong emotions".
+
 
 #8 Ordeal
 
@@ -333,11 +352,11 @@ HERO:herofights a rdfs:Property;
 
 
 HERO:herousepower a rdfs:Property;
-	rdfs:range HERO:Power;
+	rdfs:range HERO:HeroPower;
 	rdfs:domain HERO:Ordeal  .
 
 HERO:enemyusepower a rdfs:Property;
-	rdfs:range HERO:Power;
+	rdfs:range HERO:EnemyPower;
 	rdfs:domain HERO:Ordeal  .
 
 
@@ -361,6 +380,7 @@ HERO:saves a rdfs:Property;
 	rdfs:range HERO:House;
 	rdfs:domain HERO:Reward  .
 
+#reference here also
 HERO:Event_9 a HERO:Reward;
 	HERO:journeyStage "9";
 	rdfs:label "Hero  SAVES WHATEVER WAS THE TARGET OF THE THREAT SO HE GETS IT BACK ".  
@@ -370,36 +390,39 @@ HERO:Event_9 a HERO:Reward;
 #10 The Road Back
 #here I dont know why there should be another fight just here -> lets make that hero saves lover
 
-HERO:Back rdfs:subClassOf sem:Event .
+HERO:RoadBack rdfs:subClassOf sem:Event .
 
 
 
-HERO:villainrevenge a rdfs:Property;
-	rdfs:range HERO:Threat;
-	rdfs:domain HERO:Back .
+HERO:chasedBy a rdfs:Property;
+	rdfs:range HERO:Villain;
+	rdfs:domain HERO:RoadBack .
 
-HERO:Event_10 a HERO:Back; #instanciated 
+HERO:Event_10 a HERO:RoadBack; #instanciated
 	HERO:journeyStage "10";
-	rdfs:label "Villain revenges hero with another threaten".  
+	rdfs:label "Villain revenges hero with another threat".
 
 
 #11 Resurrection 
 
 HERO:Resurrection rdfs:subClassOf sem:Event .
 
+HERO:against a rdfs:Property;
+	rdfs:range HERO:Villain;
+	rdfs:domain HERO:Resurrection .
 
-HERO:heroresponsestorevenge a rdfs:Property;
+HERO:Confront a rdfs:Property;
 	rdfs:range HERO:Threat;
 	rdfs:domain HERO:Resurrection .
 
 
-HERO:herosaves a rdfs:Property;
-	rdfs:range HERO:HeroLover;
-	rdfs:domain HERO:Resurrection .
+#HERO:herosaves a rdfs:Property;
+#	rdfs:range HERO:HeroLover;
+#	rdfs:domain HERO:Resurrection .
 
 HERO:Event_11 a HERO:Resurrection; #instanciated 
 	HERO:journeyStage "11";
-	rdfs:label "Hero response to revenge and save the lover".  
+	rdfs:label "Final confrontation between hero and villain".
 
 #12 end of the story -party
 
