@@ -1,0 +1,17 @@
+@prefix mapper: <http://www.ontotext.com/mapper/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix path: <http://www.ontotext.com/path#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+
+<http://example.com/base/Daenerys%20sold%20to%20Drogo> owl:betrayedBy <http://example.com/base/Daenerys_Targaryen> .
+
+<http://example.com/base/Daenerys_Targaryen> owl:isPartnerOf <http://example.com/base/Jon_Snow> .
+
+<http://example.com/base/Sets%20Starks%20against%20Lannisters> owl:betrayedBy <http://example.com/base/Jon_Snow> .
+
+<http://example.com/base/Jon_Snow> owl:isPartnerOf <http://example.com/base/Daenerys_Targaryen> .

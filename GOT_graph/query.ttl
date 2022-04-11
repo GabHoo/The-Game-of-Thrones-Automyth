@@ -1,0 +1,26 @@
+@prefix mapper: <http://www.ontotext.com/mapper/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+
+<http://example.com/base/Daenerys_Targaryen> owl:houseOf <http://example.com/base/House_Targaryen>;
+  owl:marriedTo <http://example.com/base/Jon_Snow>;
+  owl:fatherOf <http://example.com/base/Aerys_II_Targaryen>;
+  owl:title <http://example.com/base/fictional_princess>;
+  owl:family <http://example.com/base/House_Targaryen>;
+  owl:perpetrator <http://example.com/base/Varys>;
+  owl:motherOf <http://example.com/base/Rhaella_Targaryen>;
+  owl:betrayed <http://example.com/base/Daenerys%20sold%20to%20Drogo> .
+
+<http://example.com/base/Jon_Snow> owl:houseOf <http://example.com/base/House_Targaryen>;
+  owl:marriedTo <http://example.com/base/Daenerys_Targaryen>;
+  owl:fatherOf <http://example.com/base/Rhaegar_Targaryen>;
+  owl:title <http://example.com/base/fictional_king>;
+  owl:family <http://example.com/base/House_Targaryen>;
+  owl:perpetrator <http://example.com/base/Lysa%20Arryn>;
+  owl:motherOf <http://example.com/base/Lyanna_Stark>;
+  owl:betrayed <http://example.com/base/Sets%20Starks%20against%20Lannisters> .

@@ -1,0 +1,19 @@
+@prefix mapper: <http://www.ontotext.com/mapper/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+
+<http://example.com/base/Daenerys_Targaryen> owl:occupation <http://example.com/base/revolutionary>;
+  owl:inYear <http://example.com/base/298>;
+  owl:fromHouseOf <http://example.com/base/Battle%20of%20the%20Golden%20Tooth> .
+
+<http://example.com/base/Jon_Snow> owl:occupation <http://example.com/base/soldier>;
+  owl:fought <http://example.com/base/Battle_of_Castle_Black>;
+  owl:diedBy <http://example.com/base/stabbing>;
+  owl:diedIn <http://example.com/base/Castle_Black>;
+  owl:inYear <http://example.com/base/298>;
+  owl:fromHouseOf <http://example.com/base/Battle%20of%20Riverrun> .
