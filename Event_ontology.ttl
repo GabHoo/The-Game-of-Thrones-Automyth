@@ -17,6 +17,13 @@
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+@base <http://hero_ontology/> .
+@prefix HERO: <http://hero_ontology/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
+
 sem:Object a owl:Class ;
     rdfs:label "Object" ;
     rdfs:comment "Objects are passive, inanimate Actors." ;
@@ -32,7 +39,7 @@ sem:Object a owl:Class ;
         dcterms:PhysicalResource .
         
         
- sem:hasActor a owl:ObjectProperty ;
+sem:hasActor a owl:ObjectProperty ;
     rdfs:label "has Actor" ;
     rdfs:comment "Has actor is used to state which Actors or Objects participate in an Event." ;
     rdfs:range sem:Actor ;
@@ -120,12 +127,6 @@ sem:Core a owl:Class ;
 #hero here we AREEEEE
 
 
-@base <http://hero_ontology/> .
-@prefix HERO: <http://hero_ontology/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
 #CLASS DECLARATION
 
 
@@ -146,16 +147,13 @@ HERO:HeroAlly a rdfs:Class;
 #	rdfs:subClassOf HERO:HeroAlly.
 
 HERO:Mentor a rdfs:Class;
-	rdfs:subClassOf HERO:HeroAlly.
+	rdfs:subClassOf sem:Actor.
 
 HERO:VillainAlly a rdfs:Class;
 	rdfs:subClassOf sem:Actor.
 
-HERO:Title a rdfs:Class.
 
 HERO:Power a rdfs:Class.
-
-
 HERO:EnemyPower a rdfs:Class;
 				rdfs:subClassOf HERO:Power.
 
@@ -165,6 +163,8 @@ HERO:HeroPower a rdfs:Class;
 HERO:Threat a rdfs:Class. #This should be something like STEAL, KILL, KIDINAP, DESTROY
 
 HERO:House a rdfs:Class.
+
+HERO:Title a rdfs:Class.
 
 HERO:Feelings a rdfs:Class. #scare, fear, terror, hesitation, confidence, joy,
 
@@ -214,17 +214,17 @@ HERO:Event_1 a HERO:OrdinaryWorld; #instanciated
 HERO:CallToAdventure rdfs:subClassOf sem:Event.
 
 
-HERO:villain  a rdfs:Property;
+HERO:villain  a rdfs:Property; #introducing the villain
 	rdfs:range HERO:Villain;
 	rdfs:domain HERO:CallToAdventure.
 
 
-HERO:Threatens a rdfs:Property;
-	rdfs:range HERO:Threat;
-	rdfs:domain HERO:CallToAdventure.
+#HERO:Threatens a rdfs:Property;
+	#rdfs:range HERO:Threat;
+	#rdfs:domain HERO:CallToAdventure.
 
 HERO:ThreatenedElement a rdfs:Property;
-	rdfs:range sem:Actor;
+	rdfs:range HERO:HeroAlly;
 	rdfs:range HERO:Title;
 	rdfs:range HERO:House;
 	rdfs:domain HERO:CallToAdventure.
@@ -275,8 +275,8 @@ HERO:Event_4 a HERO:MeetingTheMentor; #instanciated
 #5 CROSSING THE THRESHOLD - CHANGE OF LOCATION, DO WE NEED THAT???
 HERO:CrossThreshold rdfs:subClassOf sem:Event .
 
-HER0:travelsTo a rdfs:Property  ;
-	rdfs:range sem:Place  ;
+HERO:travelsTo a rdfs:Property;
+	rdfs:range sem:Place;
 	rdfs:domain HERO:CrossThreshold  .
 
 HERO:Event_5 a HERO:CrossThreshold; #instanciated
@@ -290,21 +290,21 @@ HERO:TestAlly rdfs:subClassOf sem:Event .
 
 HERO:meetsAlly a rdfs:Property;
 	rdfs:label "The hero meets the ally that will help him face the challenge";
-	rdfs:range sem:HeroAlly;
+	rdfs:range HERO:HeroAlly;
 	rdfs:domain HERO:TestAlly  .
 
-HERO:Faces a rdfs:Property;
+HERO:faces a rdfs:Property;
 	rdfs:label "The hero together with the ally faces the ally of the villain";
-	rdfs:range sem:VillainAlly;
+	rdfs:range HERO:VillainAlly;
 	rdfs:domain HERO:TestAlly  .
 
-"""HERO:challenge a rdfs:Property;
-	rdfs:range HERO:Challenge;
-	rdfs:domain HERO:TestAlly."""
+#HERO:challenge a rdfs:Property;
+	#rdfs:range HERO:Challenge;
+	#rdfs:domain HERO:TestAlly.
 
 	
 HERO:victory a rdfs:Property;
-	rdfs:range rdfs:boolean;
+	rdfs:range xsd:boolean;
 	rdfs:domain HERO:TestAlly.
 	
 	
@@ -351,11 +351,11 @@ HERO:herofights a rdfs:Property;
 	rdfs:domain HERO:Ordeal  .
 
 
-HERO:herousepower a rdfs:Property;
+HERO:herousespower a rdfs:Property;
 	rdfs:range HERO:HeroPower;
 	rdfs:domain HERO:Ordeal  .
 
-HERO:enemyusepower a rdfs:Property;
+HERO:enemyusespower a rdfs:Property;
 	rdfs:range HERO:EnemyPower;
 	rdfs:domain HERO:Ordeal  .
 
@@ -400,7 +400,7 @@ HERO:chasedBy a rdfs:Property;
 
 HERO:Event_10 a HERO:RoadBack; #instanciated
 	HERO:journeyStage "10";
-	rdfs:label "Villain revenges hero with another threat".
+	rdfs:label "Villain chases hero down and seek for final battle".
 
 
 #11 Resurrection 
@@ -411,14 +411,11 @@ HERO:against a rdfs:Property;
 	rdfs:range HERO:Villain;
 	rdfs:domain HERO:Resurrection .
 
-HERO:Confront a rdfs:Property;
-	rdfs:range HERO:Threat;
+HERO:killsVillain a rdfs:Property;
+	rdfs:range xsd:boolean;
 	rdfs:domain HERO:Resurrection .
 
 
-#HERO:herosaves a rdfs:Property;
-#	rdfs:range HERO:HeroLover;
-#	rdfs:domain HERO:Resurrection .
 
 HERO:Event_11 a HERO:Resurrection; #instanciated 
 	HERO:journeyStage "11";
@@ -439,54 +436,6 @@ HERO:partywith a rdfs:Property;
 	rdfs:domain HERO:Party .
 
 
-HERO:Heropersemprefeliceecontentocon a rdfs:Property;
-	rdfs:range HERO:HeroLover;
-	rdfs:domain HERO:Party .
-
 HERO:Event_12 a HERO:Party; #instanciated 
 	HERO:journeyStage "12";
 	rdfs:label "Hero throws a party".  
-
-HERO:Beatrice a sem:Actor .
-
-HERO:Becky a sem:Actor .
-
-HERO:Bernadette a sem:Actor .
-
-HERO:Beth a sem:Actor .
-
-HERO:Bethany a sem:Actor .
-
-HERO:Betty a sem:Actor .
-
-HERO:Betsy a HERO:Character .
-
-HERO:Beverly a HERO:Character .
-
-HERO:Bonnie a HERO:Character .
-
-HERO:Brianna a HERO:Character .
-
-HERO:Bridget a HERO:Character .
-
-HERO:Brooke a HERO:Character .
-
-HERO:Carly a HERO:Character .
-
-HERO:Carol a HERO:Character .
-
-HERO:Carrie a HERO:Character .
-
-HERO:Catherine a HERO:Character .
-
-HERO:Cathy a HERO:Character .
-
-HERO:Cecilia a HERO:Character .
-
-HERO:Celeste a HERO:Character .
-
-HERO:Lucia a HERO:Character.
-HERO:Portobello a HERO:Location.
-	
-
-	        

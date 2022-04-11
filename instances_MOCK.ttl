@@ -1,0 +1,124 @@
+@prefix cidoc: <http://www8.informatik.uni-erlangen.de/IMMD8/Services/cidoc-crm/erlangen-crm_090330_5_0_1.owl#> .
+@prefix cs: <http://www.kulttuurisampo.fi/ebkr/> .
+@prefix cyc: <http://sw.opencyc.org/2009/04/07/concept/en/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dolce: <http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#> .
+@prefix eo: <http://purl.org/NET/c4dm/event.owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lode: <http://linkedevents.org/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sumo: <http://www.ontologyportal.org/translations/SUMO.owl.txt#> .
+@prefix time1: <http://www.w3.org/2006/time> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@base <http://hero_ontology/> .
+@prefix HERO: <http://hero_ontology/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
+
+
+
+
+
+sem:Place a owl:Class ;
+    rdfs:label "Place" ;
+    rdfs:comment "Places are locations where an Event happens. They do not need to be physical places and hence do not necessarily need coordinates. Neither do they need to have any significance apart from them being the location of an Event." ;
+    rdfs:subClassOf sem:Core ;
+    skos:closeMatch dcterms:Location,
+        cyc:EnduringThing-Localized,
+        sumo:GeographicArea,
+        cidoc:E53.Place ;
+    skos:narrowMatch dolce:PhysicalRegion,
+        wgs84:SpatialThing .
+
+sem:Time a owl:Class ;
+    rdfs:label "Time" ;
+    rdfs:comment "Time contains symbolic representations of when an Event took place. Time instances do not necessarily need to have a timestamp associated with them. The Time class exists to represent semantics of time, e.g. that one thing happens before another, even though the exact timestamps are unknown." ;
+    rdfs:subClassOf sem:Core ;
+    skos:broadMatch time1:TemporalEntity .
+    
+    
+sem:Actor a owl:Class ;
+    rdfs:label "Actor" ;
+    rdfs:comment """Actors are entities that take part in an Event, either actively or passively. Actors do not necessarily have to be sentient. They can also be objects. Actors are a thing, animate or inanimate, physical or non-physical.
+""" ;
+    rdfs:subClassOf sem:Authority,
+        sem:Core ;
+    skos:broadMatch cyc:SomethingExisting,
+        dolce:endurant ;
+    skos:closeMatch dcterms:Agent,
+        dcterms:AgentClass,
+        cyc:Agent-Generic,
+        sumo:Agent,
+        cidoc:E39.Actor,
+        foaf:Agent .
+        
+
+HERO:Beatrice a sem:Actor .
+
+HERO:Becky a sem:Actor .
+
+HERO:Bernadette a sem:Actor .
+
+HERO:Beth a sem:Actor .
+
+HERO:Bethany a sem:Actor .
+
+HERO:Betty a sem:Actor .
+
+HERO:Betsy a sem:Actor.
+
+HERO:Beverly a sem:Actor.
+
+HERO:Bonnie a sem:Actor.
+
+HERO:Brianna a sem:Actor.
+
+HERO:Bridget a sem:Actor .
+
+HERO:Brooke a sem:Actor.
+
+HERO:Carly a sem:Actor.
+
+HERO:Carol a sem:Actor .
+
+HERO:Carrie a sem:Actor .
+
+HERO:Catherine a sem:Actor .
+
+HERO:Cathy a sem:Actor.
+
+HERO:Cecilia a sem:Actor .
+
+HERO:Celeste a sem:Actor .
+
+HERO:Lucia a sem:Actor.
+
+HERO:Winterfall a sem:Place.
+HERO:BlackWaters a sem:Place.
+HERO:RedForest a sem:Place.
+
+HERO:825 a sem:Time.
+HERO:Sunset a sem:Time.
+
+HERO:duke a HERO:Title.
+HERO:Chairman a HERO:Title.
+
+HERO:Stark a HERO:House.
+HERO:Targarien a HERO:House.
+
+HERO:seeFuture a HERO:Power.
+HERO:SickSwordSkills a HERO:Power.
+
+HERO:feast a HERO:Celebration.
+
+HERO:insecure a HERO:Feelings.
+HERO:scared a HERO:Feelings.
