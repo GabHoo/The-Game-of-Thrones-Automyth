@@ -22,14 +22,15 @@ def random_pick(ist_class):
     class_node=URIRef(str(ist_class))
     
 
+
     for e in g.subjects(RDF.type, class_node):
         list_e.append(e)
     
     #THis is because Mentor for example is a subclass of actor. Since there are no instance directly for mentor we look for its super class (Actor) and pick instance of it.
     while( not list_e):
         print("EMPTY LIST for", class_node)
-        class_node = g.value(predicate = RDFS.subClassOf, subject=URIRef(str(ist_class)), any=False)
-        
+        class_node = g.value(predicate = RDFS.subClassOf, subject=class_node, any=False)
+        print("new super class ", class_node)
         for e in g.subjects(RDF.type, class_node):
             list_e.append(e)
 
@@ -61,7 +62,15 @@ def main(argv, arc):
     
     story = Graph() #creates the graph of the story
 
-    hero=random_pick("http://semanticweb.cs.vu.nl/2009/11/sem/Actor") #defining the hero of the story
+    #FIXED ENTITES - THE STORY DOMAIN
+    fixed={}
+    fixed["Hero"]=random_pick("http://hero_ontology/Hero") #defining the hero of the story
+    fixed["Villain"]=random_pick("http://hero_ontology/Villain")
+    fixed["EnemyPower"]=random_pick("http://hero_ontology/EnemyPower")
+    fixed["HeroPower"]=random_pick("http://hero_ontology/HeroPower")
+    fixed["HeroAlly"]=random_pick("http://hero_ontology/HeroAlly")
+    fixed["VillainAlly"]=random_pick("http://hero_ontology/VillainAlly")
+    
 
     print("list of subevents is:", subEvents)
     for i in subEvents:
@@ -74,10 +83,14 @@ def main(argv, arc):
         story += g.triples((instance_i, None, None))
         
         #THAN WE INSTANCIATE AND ADD TO STORY those that are common to every event
-        for (p,r) in properties:
+        for (p,r) in properties: #property and range
             print(p)
-            if(p==URIRef("http://semanticweb.cs.vu.nl/2009/11/sem/hasActor")): #this is to make sure that the hero is always the same
-                story.add((instance_i, p,hero ))
+            #if(p==URIRef("http://semanticweb.cs.vu.nl/2009/11/sem/hasActor")): 
+            #if(r==URIRef("http://hero_ontology/Hero")): #this is to make sure that the hero is always the same
+            range_str=r.split('/')[-1]
+            if( range_str in fixed):
+                print(range_str,"is in fixed dic?")
+                story.add((instance_i, p,fixed[range_str]))
             else:
                 story.add((instance_i, p,random_pick(r)))
 

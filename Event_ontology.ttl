@@ -42,7 +42,7 @@ sem:Object a owl:Class ;
 sem:hasActor a owl:ObjectProperty ;
     rdfs:label "has Actor" ;
     rdfs:comment "Has actor is used to state which Actors or Objects participate in an Event." ;
-    rdfs:range sem:Actor ;
+    rdfs:range HERO:Hero ; #BIG LIMITATION BUT QUite confy
     rdfs:subPropertyOf sem:eventProperty ;
     skos:exactMatch lode:involved ;
     skos:narrowMatch cs:agent ;
