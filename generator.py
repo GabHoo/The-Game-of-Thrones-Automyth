@@ -101,9 +101,14 @@ def main(argv, arc):
             for s1,p1,o1 in g.triples((s,RDFS.range,None)):
                 print("       range: ",o1) 
                 allranges.append(o1)
-            
-            ist=random_pick(random.choice(allranges))   #pick one from the possible ranges
-            story.add((instance_i, s,ist ))
+            rand_range=(random.choice(allranges))
+            range_str=rand_range.split('/')[-1]  #pick one from the possible ranges
+            if( range_str in fixed):
+                print(range_str,"is in fixed dic?")
+                story.add((instance_i, s,fixed[range_str]))
+            else:
+                story.add((instance_i, s,random_pick(rand_range)))
+
 
     story.serialize("./story.ttl")
 
