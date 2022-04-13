@@ -122,3 +122,7 @@ HERO:feast a HERO:Celebration.
 
 HERO:insecure a HERO:Feelings.
 HERO:scared a HERO:Feelings.
+
+HERO:worldPeace a HERO:ThreatTarget.
+HERO:family a HERO:ThreatTarget.
+HERO:herosHonor a HERO:ThreatTarget.

@@ -70,7 +70,7 @@ def main(argv, arc):
     fixed["HeroPower"]=random_pick("http://hero_ontology/HeroPower")
     fixed["HeroAlly"]=random_pick("http://hero_ontology/HeroAlly")
     fixed["VillainAlly"]=random_pick("http://hero_ontology/VillainAlly")
-    
+    fixed["ThreatTarget"]=random_pick("http://hero_ontology/ThreatTarget")
 
     print("list of subevents is:", subEvents)
     for i in subEvents:

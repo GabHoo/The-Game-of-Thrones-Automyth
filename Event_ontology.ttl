@@ -160,7 +160,7 @@ HERO:EnemyPower a rdfs:Class;
 HERO:HeroPower a rdfs:Class;
 				rdfs:subClassOf HERO:Power.
 
-HERO:Threat a rdfs:Class. #This should be something like STEAL, KILL, KIDINAP, DESTROY
+HERO:ThreatTarget a rdfs:Class. #This should be something like STEAL, KILL, KIDINAP, DESTROY
 
 HERO:House a rdfs:Class.
 
@@ -224,9 +224,8 @@ HERO:villain  a rdfs:Property; #introducing the villain
 	#rdfs:domain HERO:CallToAdventure.
 
 HERO:ThreatenedElement a rdfs:Property;
-	rdfs:range HERO:HeroAlly;
-	rdfs:range HERO:Title;
-	rdfs:range HERO:House;
+	rdfs:range HERO:ThreatTarget;
+	
 	rdfs:domain HERO:CallToAdventure.
 
 	
@@ -375,9 +374,7 @@ HERO:Event_8 a HERO:Ordeal; #instanciated
 HERO:Reward rdfs:subClassOf sem:Event .
 
 HERO:saves a rdfs:Property;
-	rdfs:range sem:Actor; 
-	rdfs:range HERO:Title;
-	rdfs:range HERO:House;
+	rdfs:range HERO:ThreatTarget; 
 	rdfs:domain HERO:Reward  .
 
 #reference here also
