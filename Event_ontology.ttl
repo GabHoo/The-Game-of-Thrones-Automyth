@@ -210,7 +210,7 @@ HERO:hasOccupation a rdfs:Property ;
 	rdfs:domain HERO:OrdinaryWorld .
 	
 HERO:Event_1 a HERO:OrdinaryWorld; #instanciated 
-	HERO:journeyStage "1";
+	HERO:journeyStage 1;
 	rdfs:label "Ordinary World presentation". 
 	
 #2 CALL TO ADVENTURE
@@ -234,7 +234,7 @@ HERO:ThreatenedElement a rdfs:Property;
 
 	
 HERO:Event_2 a HERO:CallToAdventure; #instanciated 
-	HERO:journeyStage "2";
+	HERO:journeyStage 2;
 	rdfs:label "Villain threatens the safety of somebody. This is the call for the hero". 
 
 #3 REFUSAL OF THE CALL
@@ -252,7 +252,7 @@ HERO:scaredOf   a rdfs:Property;
 	rdfs:domain HERO:RefusalOfCall.
 	
 HERO:Event_3 a HERO:RefusalOfCall; #instanciated 
-	HERO:journeyStage "3";
+	HERO:journeyStage 3;
 	rdfs:label "Hero refuses to help saving the target and the world". 	
 	
 		
@@ -271,7 +271,7 @@ HERO:powerLearned a rdfs:Property;
 #motivatonal quotes?????	
 	
 HERO:Event_4 a HERO:MeetingTheMentor; #instanciated 
-	HERO:journeyStage "4";
+	HERO:journeyStage 4;
 	rdfs:label "Meeting the Mentor".  
 
 
@@ -283,7 +283,7 @@ HERO:travelsTo a rdfs:Property;
 	rdfs:domain HERO:CrossThreshold  .
 
 HERO:Event_5 a HERO:CrossThreshold; #instanciated
-	HERO:journeyStage "5";
+	HERO:journeyStage 5;
 	rdfs:label "The hero decides to face the villain and travels to the Place where the villain is.".
 
 
@@ -312,7 +312,7 @@ HERO:victory a rdfs:Property;
 	
 	
 HERO:Event_6 a HERO:TestAlly; #instanciated 
-	HERO:journeyStage "6";
+	HERO:journeyStage 6;
 	rdfs:label "The ally help the hero to face the challenge against the Villain and its ally. it is a firt test".
 
 
@@ -340,7 +340,7 @@ HERO:feeling a rdfs:Property;
 
 
 HERO:Event_7 a HERO:InmostCave; #instanciated 
-	HERO:journeyStage "7";
+	HERO:journeyStage 7;
 	#rdfs:label "The hero falls in love with (the ally?) or someone and this someone is threatened".
 	rdfs:label "The hero is arrived at the location to face the villain and feel strong emotions".
 
@@ -370,7 +370,7 @@ HERO:herogetsinjured a rdfs:Property;
 
 
 HERO:Event_8 a HERO:Ordeal; #instanciated 
-	HERO:journeyStage "8";
+	HERO:journeyStage 8;
 	rdfs:label "Hero fights the enemy with powers".  
 
 #9 Reward, seizing the sword WHAT ABOUT WE SAY THE HERO SAVES WHATEVER WAS THE TARGET OF THE THREAT SO HE GETS IT BACK (?)
@@ -383,7 +383,7 @@ HERO:saves a rdfs:Property;
 
 #reference here also
 HERO:Event_9 a HERO:Reward;
-	HERO:journeyStage "9";
+	HERO:journeyStage 9;
 	rdfs:label "Hero  SAVES WHATEVER WAS THE TARGET OF THE THREAT SO HE GETS IT BACK ".  
 
 	
@@ -400,7 +400,7 @@ HERO:chasedBy a rdfs:Property;
 	rdfs:domain HERO:RoadBack .
 
 HERO:Event_10 a HERO:RoadBack; #instanciated
-	HERO:journeyStage "10";
+	HERO:journeyStage 10;
 	rdfs:label "Villain chases hero down and seek for final battle".
 
 
@@ -419,7 +419,7 @@ HERO:killsVillain a rdfs:Property;
 
 
 HERO:Event_11 a HERO:Resurrection; #instanciated 
-	HERO:journeyStage "11";
+	HERO:journeyStage 11;
 	rdfs:label "Final confrontation between hero and villain".
 
 #12 end of the story -party
@@ -438,5 +438,5 @@ HERO:partywith a rdfs:Property;
 
 
 HERO:Event_12 a HERO:Party; #instanciated 
-	HERO:journeyStage "12";
+	HERO:journeyStage 12;
 	rdfs:label "Hero throws a party".  
