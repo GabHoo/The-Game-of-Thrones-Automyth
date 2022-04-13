@@ -1,0 +1,108 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xs:   <http://www.w3.org/2001/XMLSchema#> .
+@base <http://hero_ontology/> .
+@prefix HERO: <http://hero_ontology/> .
+@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
+
+
+#feeelings
+
+HERO:aggressive a HERO:Feelings.
+HERO:agonized a HERO:Feelings.
+HERO:angry a HERO:Feelings.
+HERO:annoyed a HERO:Feelings.
+HERO:arrogant a HERO:Feelings.
+HERO:awful a HERO:Feelings.
+HERO:bad a HERO:Feelings.
+HERO:bored a HERO:Feelings.
+HERO:confused a HERO:Feelings.
+HERO:crazy a HERO:Feelings.
+HERO:disappointed a HERO:Feelings.
+HERO:disbelieving a HERO:Feelings.
+HERO:disgusted a HERO:Feelings.
+HERO:enraged a HERO:Feelings.
+HERO:exhausted a HERO:Feelings.
+HERO:frightened a HERO:Feelings.
+HERO:frustrated a HERO:Feelings.
+HERO:grieving a HERO:Feelings.
+HERO:guilty a HERO:Feelings.
+HERO:hangover a HERO:Feelings.
+HERO:helpless a HERO:Feelings.
+HERO:horrified a HERO:Feelings.
+HERO:hurt a HERO:Feelings.
+HERO:hysterical a HERO:Feelings.
+HERO:idiotic a HERO:Feelings.
+HERO:indifferent a HERO:Feelings.
+HERO:lonely a HERO:Feelings.
+HERO:lovesick a HERO:Feelings.
+HERO:mad a HERO:Feelings.
+HERO:mischievous a HERO:Feelings.
+HERO:miserable a HERO:Feelings.
+HERO:nasty a HERO:Feelings.
+HERO:nervous a HERO:Feelings.
+HERO:puzzled a HERO:Feelings.
+HERO:sad a HERO:Feelings.
+HERO:sheepish a HERO:Feelings.
+HERO:shocked a HERO:Feelings.
+HERO:silly a HERO:Feelings.
+HERO:smug a HERO:Feelings.
+HERO:sorry a HERO:Feelings.
+HERO:strange a HERO:Feelings.
+HERO:stupid a HERO:Feelings.
+HERO:suspicious a HERO:Feelings.
+HERO:terrible a HERO:Feelings.
+HERO:jealous a HERO:Feelings.
+HERO:upset a HERO:Feelings.
+
+
+#powers
+HERO:invisibility a HERO:Power.
+HERO:fireResistance a HERO:Power.
+HERO:pausingTime a HERO:Power.
+HERO:nightVision a HERO:Power.
+HERO:teleportation a HERO:Power.
+HERO:mindReading a HERO:Power.
+HERO:gravityControl a HERO:Power.
+HERO:erasingMemory a HERO:Power.
+HERO:slowingTime a HERO:Power.
+
+
+#Threatened element
+HERO:castle a HERO:ThreatenedElement.
+HERO:lifestyle a HERO:ThreatenedElement.
+HERO:peace a HERO:ThreatenedElement.
+HERO:equality a HERO:ThreatenedElement.
+HERO:freedom a HERO:ThreatenedElement.
+HERO:happiness a HERO:ThreatenedElement.
+HERO:grandmother a HERO:ThreatenedElement.
+HERO:jewel a HERO:ThreatenedElement.
+HERO:treasure a HERO:ThreatenedElement.
+#not too sure but think we can
+HERO:Title a HERO:ThreatenedElement.
+HERO:House a HERO:ThreatenedElement.
+HERO:HeroAlly a HERO:ThreatenedElement.
+
+#celebrations
+HERO:feast a HERO:Celebration .
+HERO:ball a HERO:Celebration .
+HERO:show a HERO:Celebration .
+HERO:fireworks a HERO:Celebration .
+HERO:game a HERO:Celebration .
+HERO:storytelling a HERO:Celebration .
+HERO:marriage a HERO:Celebration .
+HERO:concert a HERO:Celebration .
+
+#times
+
+HERO:sunrise a sem:Time.
+HERO:theMiddleOftheNight a sem:Time.
+HERO:christmas a sem:Time.
+HERO:easter a sem:Time.
+HERO:heroBirthday a sem:Time.
+HERO:villainBirthday a sem:Time.
+HERO:lunch a sem:Time.
+HERO:evening a sem:Time.
+HERO:afternoon a sem:Time.
+
+
