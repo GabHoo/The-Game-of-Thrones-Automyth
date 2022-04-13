@@ -7,7 +7,7 @@
         #### Jon_Snow ####
 		
 		
-:Jon_Snow a HERO:Main_Character;
+HERO:Jon_Snow a HERO:Main_Character;
 	HERO:father HERO:Rhaegar_Targaryen ;
 	HERO:mother HERO:Lyanna_Stark ;
 	HERO:sibling HERO:Rhaenys_Targaryen_daughter_of_Rhaegar ;
@@ -37,7 +37,7 @@
 .
 
 #### Daenerys_Targaryen ####
-:Daenerys_Targaryen a HERO:Main_Character;
+HERO:Daenerys_Targaryen a HERO:Main_Character;
 	HERO:father HERO:Aerys_II_Targaryen ;
 	HERO:mother HERO:Rhaella_Targaryen ;
 	HERO:sibling HERO:Viserys_Targaryen ;
@@ -53,7 +53,7 @@
 .
 
 #### Arya_Stark ####
-:Arya_Stark a HERO:Main_Character;
+HERO:Arya_Stark a HERO:Main_Character;
 	HERO:father HERO:Eddard_Stark ;
 	HERO:mother HERO:Catelyn_Stark ;
 	HERO:sibling HERO:Sansa_Stark ;
@@ -68,7 +68,7 @@
 .
 
 #### Bran_Stark ####
-:Bran_Stark a HERO:Main_Character;
+HERO:Bran_Stark a HERO:Main_Character;
 	HERO:father HERO:Eddard_Stark ;
 	HERO:mother HERO:Catelyn_Stark ;
 	HERO:sibling HERO:Sansa_Stark ;
@@ -80,7 +80,7 @@
 .
 
 #### Cersei_Lannister ####
-:Cersei_Lannister a HERO:Main_Character;
+HERO:Cersei_Lannister a HERO:Main_Character;
 	HERO:father HERO:Tywin_Lannister ;
 	HERO:mother HERO:Joanna_Lannister ;
 	HERO:sibling HERO:Tyrion_Lannister ;
@@ -103,7 +103,7 @@
 .
 
 #### Tyrion_Lannister ####
-:Tyrion_Lannister a HERO:Main_Character;
+HERO:Tyrion_Lannister a HERO:Main_Character;
 	HERO:father HERO:Tywin_Lannister ;
 	HERO:mother HERO:Joanna_Lannister ;
 	HERO:sibling HERO:Cersei_Lannister ;
@@ -121,7 +121,7 @@
 .
 
 #### Margaery_Tyrell ####
-:Margaery_Tyrell a HERO:Main_Character;
+HERO:Margaery_Tyrell a HERO:Main_Character;
 	HERO:father HERO:Mace_Tyrell ;
 	HERO:mother HERO:Alerie_Tyrell ;
 	HERO:sibling HERO:Loras_Tyrell ;
@@ -138,7 +138,7 @@
 .
 
 #### Petyr_Baelish ####
-:Petyr_Baelish a HERO:Main_Character;
+HERO:Petyr_Baelish a HERO:Main_Character;
 	HERO:spouse HERO:Lysa_Arryn ;
 	HERO:relative HERO:Robert_Arryn ;
 	HERO:occupation HERO:bureaucrat ;
@@ -151,7 +151,7 @@
 .
 
 #### Robert_Baratheon ####
-:Robert_Baratheon a HERO:Main_Character;
+HERO:Robert_Baratheon a HERO:Main_Character;
 	HERO:father HERO:Steffon_Baratheon ;
 	HERO:mother HERO:Cassana_Baratheon ;
 	HERO:sibling HERO:Stannis_Baratheon ;

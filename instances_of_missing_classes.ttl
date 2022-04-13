@@ -69,19 +69,19 @@ HERO:slowingTime a HERO:Power.
 
 
 #Threatened element
-HERO:castle a HERO:ThreatenedElement.
-HERO:lifestyle a HERO:ThreatenedElement.
-HERO:peace a HERO:ThreatenedElement.
-HERO:equality a HERO:ThreatenedElement.
-HERO:freedom a HERO:ThreatenedElement.
-HERO:happiness a HERO:ThreatenedElement.
-HERO:grandmother a HERO:ThreatenedElement.
-HERO:jewel a HERO:ThreatenedElement.
-HERO:treasure a HERO:ThreatenedElement.
+HERO:castle a HERO:ThreatTarget.
+HERO:lifestyle a HERO:ThreatTarget.
+HERO:peace a HERO:ThreatTarget.
+HERO:equality a HERO:ThreatTarget.
+HERO:freedom a HERO:ThreatTarget.
+HERO:happiness a HERO:ThreatTarget.
+HERO:grandmother a HERO:ThreatTarget.
+HERO:jewel a HERO:ThreatTarget.
+HERO:treasure a HERO:ThreatTarget.
 #not too sure but think we can
-HERO:Title a HERO:ThreatenedElement.
-HERO:House a HERO:ThreatenedElement.
-HERO:HeroAlly a HERO:ThreatenedElement.
+HERO:Title a HERO:ThreatTarget.
+HERO:House a HERO:ThreatTarget.
+HERO:HeroAlly a HERO:ThreatTarget.
 
 #celebrations
 HERO:feast a HERO:Celebration .

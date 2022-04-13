@@ -152,6 +152,7 @@ HERO:Mentor a rdfs:Class;
 HERO:VillainAlly a rdfs:Class;
 	rdfs:subClassOf sem:Actor.
 
+HERO:Occupation a rdfs:Class.
 
 HERO:Power a rdfs:Class.
 HERO:EnemyPower a rdfs:Class;
@@ -203,7 +204,10 @@ HERO:hasTitle a rdfs:Property ;
 HERO:hasHouse a rdfs:Property ;
 	rdfs:range HERO:House ;
 	rdfs:domain HERO:OrdinaryWorld .
-	
+
+HERO:hasOccupation a rdfs:Property ;
+	rdfs:range HERO:Occupation ;
+	rdfs:domain HERO:OrdinaryWorld .
 	
 HERO:Event_1 a HERO:OrdinaryWorld; #instanciated 
 	HERO:journeyStage "1";
