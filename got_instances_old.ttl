@@ -1,12 +1,12 @@
-@base <http://hero_ontology/> .
-@prefix HERO: <http://hero_ontology/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
-
-#### Jon_Snow ####
-				
+ @base <http://hero_ontology/> .
+            @prefix HERO: <http://hero_ontology/> .
+            @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+            @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+            @prefix owl: <http://www.w3.org/2002/07/owl#> .
+            @prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
+        #### Jon_Snow ####
+		
+		
 HERO:Jon_Snow a HERO:Main_Character;
 	HERO:father HERO:Rhaegar_Targaryen ;
 	HERO:mother HERO:Lyanna_Stark ;
