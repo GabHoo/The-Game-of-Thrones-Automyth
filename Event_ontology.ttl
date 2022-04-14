@@ -137,7 +137,8 @@ HERO:Hero a rdfs:Class;
 	rdfs:subClassOf sem:Actor.
 	
 HERO:Villain a rdfs:Class;
-	rdfs:subClassOf sem:Actor. 
+	rdfs:subClassOf sem:Actor;
+    rdfs:label "Villain".
 
 
 HERO:HeroAlly a rdfs:Class;	
@@ -202,6 +203,7 @@ HERO:hasTitle a rdfs:Property ;
 
 
 HERO:hasHouse a rdfs:Property ;
+	rdfs:label "";
 	rdfs:range HERO:House ;
 	rdfs:domain HERO:OrdinaryWorld .
 
