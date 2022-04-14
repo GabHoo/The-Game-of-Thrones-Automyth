@@ -71,6 +71,7 @@ HERO:Arya_Stark a HERO:Main_Character;
 	HERO:occupation HERO:mass_murderer ;
 	HERO:occupation HERO:vigilante ;
 	HERO:occupation HERO:assassin ;
+	HERO:title HERO:Lady ;
 .
 
 #### Bran_Stark ####
@@ -85,6 +86,7 @@ HERO:Bran_Stark a HERO:Main_Character;
 	HERO:sibling HERO:Robb_Stark ;
 	HERO:family HERO:House_Stark ;
 	HERO:occupation HERO:prophet ;
+	HERO:title HERO:Lord ;
 .
 
 #### Cersei_Lannister ####
@@ -216,6 +218,7 @@ HERO:Rhaegar_Targaryen a sem:Actor .
 HERO:Willas_Tyrell a sem:Actor .
 HERO:Rickard_Stark a sem:Actor .
 HERO:Lord a HERO:Title .
+HERO:Lady a HERO:Title .
 HERO:Lysa_Arryn a sem:Actor .
 HERO:Joffrey_Baratheon a sem:Actor .
 HERO:Lancel_Lannister a sem:Actor .
