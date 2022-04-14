@@ -1,0 +1,197 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xs:   <http://www.w3.org/2001/XMLSchema#> .
+
+#ALL INSTANCES
+HERO:warrior a HERO:Occupation .
+HERO:warrior rdfs:label "warrior".
+HERO:Gendry a sem:Actor .
+HERO:Gendry rdfs:label "Gendry".
+HERO:soldier a HERO:Occupation .
+HERO:soldier rdfs:label "soldier".
+HERO:fictional_king a HERO:Title .
+HERO:fictional_king rdfs:label "fictional_king".
+HERO:Robert_Arryn a sem:Actor .
+HERO:Robert_Arryn rdfs:label "Robert_Arryn".
+HERO:Benjen_Stark a sem:Actor .
+HERO:Benjen_Stark rdfs:label "Benjen_Stark".
+HERO:House_Stark a HERO:House .
+HERO:House_Stark rdfs:label "House_Stark".
+HERO:explosion a HERO:Cause_of_death .
+HERO:explosion rdfs:label "explosion".
+HERO:assassin a HERO:Occupation .
+HERO:assassin rdfs:label "assassin".
+HERO:Aegon_Targaryen a sem:Actor .
+HERO:Aegon_Targaryen rdfs:label "Aegon_Targaryen".
+HERO:House_Targaryen a HERO:House .
+HERO:House_Targaryen rdfs:label "House_Targaryen".
+HERO:Cassana_Baratheon a sem:Actor .
+HERO:Cassana_Baratheon rdfs:label "Cassana_Baratheon".
+HERO:Castle_Black a sem:Place .
+HERO:Castle_Black rdfs:label "Castle_Black".
+HERO:Aerys_II_Targaryen a sem:Actor .
+HERO:Aerys_II_Targaryen rdfs:label "Aerys_II_Targaryen".
+HERO:Sansa_Stark a sem:Actor .
+HERO:Sansa_Stark rdfs:label "Sansa_Stark".
+HERO:Ygritte a sem:Actor .
+HERO:Ygritte rdfs:label "Ygritte".
+HERO:Khal_Drogo a sem:Actor .
+HERO:Khal_Drogo rdfs:label "Khal_Drogo".
+HERO:injury a HERO:Cause_of_death .
+HERO:injury rdfs:label "injury".
+HERO:cut a HERO:Cause_of_death .
+HERO:cut rdfs:label "cut".
+HERO:Rhaegar_Targaryen a sem:Actor .
+HERO:Rhaegar_Targaryen rdfs:label "Rhaegar_Targaryen".
+HERO:Willas_Tyrell a sem:Actor .
+HERO:Willas_Tyrell rdfs:label "Willas_Tyrell".
+HERO:Rickard_Stark a sem:Actor .
+HERO:Rickard_Stark rdfs:label "Rickard_Stark".
+HERO:Lord a HERO:Title .
+HERO:Lord rdfs:label "Lord".
+HERO:Lysa_Arryn a sem:Actor .
+HERO:Lysa_Arryn rdfs:label "Lysa_Arryn".
+HERO:Joffrey_Baratheon a sem:Actor .
+HERO:Joffrey_Baratheon rdfs:label "Joffrey_Baratheon".
+HERO:Lancel_Lannister a sem:Actor .
+HERO:Lancel_Lannister rdfs:label "Lancel_Lannister".
+HERO:Renly_Baratheon a sem:Actor .
+HERO:Renly_Baratheon rdfs:label "Renly_Baratheon".
+HERO:King_of_the_Andals_the_Rhoynar_and_the_First_Men a HERO:Title .
+HERO:King_of_the_Andals_the_Rhoynar_and_the_First_Men rdfs:label "King_of_the_Andals_the_Rhoynar_and_the_First_Men".
+HERO:Battle_of_Castle_Black a HERO:Battle .
+HERO:Battle_of_Castle_Black rdfs:label "Battle_of_Castle_Black".
+HERO:stabbing a HERO:Cause_of_death .
+HERO:stabbing rdfs:label "stabbing".
+HERO:Edric_Storm a sem:Actor .
+HERO:Edric_Storm rdfs:label "Edric_Storm".
+HERO:Tommen_Baratheon a sem:Actor .
+HERO:Tommen_Baratheon rdfs:label "Tommen_Baratheon".
+HERO:Stannis_Baratheon a sem:Actor .
+HERO:Stannis_Baratheon rdfs:label "Stannis_Baratheon".
+HERO:Lyanna_Stark a sem:Actor .
+HERO:Lyanna_Stark rdfs:label "Lyanna_Stark".
+HERO:regent a HERO:Occupation .
+HERO:regent rdfs:label "regent".
+HERO:Kings_Landing a sem:Place .
+HERO:Kings_Landing rdfs:label "Kings_Landing".
+HERO:rebel a HERO:Occupation .
+HERO:rebel rdfs:label "rebel".
+HERO:Robb_Stark a sem:Actor .
+HERO:Robb_Stark rdfs:label "Robb_Stark".
+HERO:Steffon_Baratheon a sem:Actor .
+HERO:Steffon_Baratheon rdfs:label "Steffon_Baratheon".
+HERO:Alerie_Tyrell a sem:Actor .
+HERO:Alerie_Tyrell rdfs:label "Alerie_Tyrell".
+HERO:Battle_of_the_Bastards a HERO:Battle .
+HERO:Battle_of_the_Bastards rdfs:label "Battle_of_the_Bastards".
+HERO:fictional_princess a HERO:Title .
+HERO:fictional_princess rdfs:label "fictional_princess".
+HERO:Rhaenys_Targaryen_daughter_of_Rhaegar a sem:Actor .
+HERO:Rhaenys_Targaryen_daughter_of_Rhaegar rdfs:label "Rhaenys_Targaryen_daughter_of_Rhaegar".
+HERO:Greyjoy_Rebellion a HERO:Battle .
+HERO:Greyjoy_Rebellion rdfs:label "Greyjoy_Rebellion".
+HERO:advisor a HERO:Occupation .
+HERO:advisor rdfs:label "advisor".
+HERO:Loras_Tyrell a sem:Actor .
+HERO:Loras_Tyrell rdfs:label "Loras_Tyrell".
+HERO:Shae a sem:Actor .
+HERO:Shae rdfs:label "Shae".
+HERO:revolutionary a HERO:Occupation .
+HERO:revolutionary rdfs:label "revolutionary".
+HERO:official a HERO:Occupation .
+HERO:official rdfs:label "official".
+HERO:House_Baratheon a HERO:House .
+HERO:House_Baratheon rdfs:label "House_Baratheon".
+HERO:Jaime_Lannister a sem:Actor .
+HERO:Jaime_Lannister rdfs:label "Jaime_Lannister".
+HERO:spy a HERO:Occupation .
+HERO:spy rdfs:label "spy".
+HERO:hunting_accident a HERO:Cause_of_death .
+HERO:hunting_accident rdfs:label "hunting_accident".
+HERO:military_leader a HERO:Occupation .
+HERO:military_leader rdfs:label "military_leader".
+HERO:Viserys_Targaryen a sem:Actor .
+HERO:Viserys_Targaryen rdfs:label "Viserys_Targaryen".
+HERO:Great_Sept_of_Baelor a sem:Place .
+HERO:Great_Sept_of_Baelor rdfs:label "Great_Sept_of_Baelor".
+HERO:queen_consort a HERO:Title .
+HERO:queen_consort rdfs:label "queen_consort".
+HERO:bureaucrat a HERO:Occupation .
+HERO:bureaucrat rdfs:label "bureaucrat".
+HERO:hunter a HERO:Occupation .
+HERO:hunter rdfs:label "hunter".
+HERO:Myrcella_Baratheon a sem:Actor .
+HERO:Myrcella_Baratheon rdfs:label "Myrcella_Baratheon".
+HERO:Daario_Naharis a sem:Actor .
+HERO:Daario_Naharis rdfs:label "Daario_Naharis".
+HERO:Battle_of_the_Blackwater a HERO:Battle .
+HERO:Battle_of_the_Blackwater rdfs:label "Battle_of_the_Blackwater".
+HERO:House_Lannister a HERO:House .
+HERO:House_Lannister rdfs:label "House_Lannister".
+HERO:Winterfell a sem:Place .
+HERO:Winterfell rdfs:label "Winterfell".
+HERO:fictional_vigilante a HERO:Occupation .
+HERO:fictional_vigilante rdfs:label "fictional_vigilante".
+HERO:procurer a HERO:Occupation .
+HERO:procurer rdfs:label "procurer".
+HERO:fictional_queen a HERO:Title .
+HERO:fictional_queen rdfs:label "fictional_queen".
+HERO:Joanna_Lannister a sem:Actor .
+HERO:Joanna_Lannister rdfs:label "Joanna_Lannister".
+HERO:Rhaella_Targaryen a sem:Actor .
+HERO:Rhaella_Targaryen rdfs:label "Rhaella_Targaryen".
+HERO:Tywin_Lannister a sem:Actor .
+HERO:Tywin_Lannister rdfs:label "Tywin_Lannister".
+HERO:prophet a HERO:Occupation .
+HERO:prophet rdfs:label "prophet".
+HERO:War_of_the_Usurper a HERO:Battle .
+HERO:War_of_the_Usurper rdfs:label "War_of_the_Usurper".
+HERO:Rickon_Stark a sem:Actor .
+HERO:Rickon_Stark rdfs:label "Rickon_Stark".
+HERO:murderer a HERO:Occupation .
+HERO:murderer rdfs:label "murderer".
+HERO:House_Tyrell a HERO:House .
+HERO:House_Tyrell rdfs:label "House_Tyrell".
+HERO:queen_regnant a HERO:Title .
+HERO:queen_regnant rdfs:label "queen_regnant".
+HERO:Lyarra_Stark a sem:Actor .
+HERO:Lyarra_Stark rdfs:label "Lyarra_Stark".
+HERO:Eddard_Stark a sem:Actor .
+HERO:Eddard_Stark rdfs:label "Eddard_Stark".
+HERO:squire a HERO:Occupation .
+HERO:squire rdfs:label "squire".
+HERO:mass_murderer a HERO:Occupation .
+HERO:mass_murderer rdfs:label "mass_murderer".
+HERO:Catelyn_Stark a sem:Actor .
+HERO:Catelyn_Stark rdfs:label "Catelyn_Stark".
+HERO:Euron_Greyjoy a sem:Actor .
+HERO:Euron_Greyjoy rdfs:label "Euron_Greyjoy".
+HERO:Red_Keep a sem:Place .
+HERO:Red_Keep rdfs:label "Red_Keep".
+HERO:Hizdahr_zo_Loraq a sem:Actor .
+HERO:Hizdahr_zo_Loraq rdfs:label "Hizdahr_zo_Loraq".
+HERO:Garlan_Tyrell a sem:Actor .
+HERO:Garlan_Tyrell rdfs:label "Garlan_Tyrell".
+HERO:Mace_Tyrell a sem:Actor .
+HERO:Mace_Tyrell rdfs:label "Mace_Tyrell".
+HERO:ruler a HERO:Occupation .
+HERO:ruler rdfs:label "ruler".
+HERO:Jon_Snow a HERO:Main_Character.
+HERO:Jon_Snow rdfs:label "Jon_Snow".
+HERO:Daenerys_Targaryen a HERO:Main_Character.
+HERO:Daenerys_Targaryen rdfs:label "Daenerys_Targaryen".
+HERO:Arya_Stark a HERO:Main_Character.
+HERO:Arya_Stark rdfs:label "Arya_Stark".
+HERO:Bran_Stark a HERO:Main_Character.
+HERO:Bran_Stark rdfs:label "Bran_Stark".
+HERO:Cersei_Lannister a HERO:Main_Character.
+HERO:Cersei_Lannister rdfs:label "Cersei_Lannister".
+HERO:Tyrion_Lannister a HERO:Main_Character.
+HERO:Tyrion_Lannister rdfs:label "Tyrion_Lannister".
+HERO:Margaery_Tyrell a HERO:Main_Character.
+HERO:Margaery_Tyrell rdfs:label "Margaery_Tyrell".
+HERO:Petyr_Baelish a HERO:Main_Character.
+HERO:Petyr_Baelish rdfs:label "Petyr_Baelish".
+HERO:Robert_Baratheon a HERO:Main_Character.
+HERO:Robert_Baratheon rdfs:label "Robert_Baratheon".
