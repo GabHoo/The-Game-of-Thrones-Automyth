@@ -5,6 +5,7 @@ import sys
 from generator import random_pick
 import os
 import pandas as pd
+from string import Template
 
 from scipy import rand
 
