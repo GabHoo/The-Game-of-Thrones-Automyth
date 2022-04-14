@@ -6,6 +6,8 @@ from generator import random_pick
 import os
 import pandas as pd
 from string import Template
+import networkx as nx
+import networkx.algorithms.community as nxcom
 
 from scipy import rand
 
