@@ -8,6 +8,7 @@
 #### Jon_Snow ####
 				
 HERO:Jon_Snow a HERO:Main_Character;
+	a sem:Actor ;
 	HERO:father HERO:Rhaegar_Targaryen ;
 	HERO:mother HERO:Lyanna_Stark ;
 	HERO:sibling HERO:Rhaenys_Targaryen_daughter_of_Rhaegar ;
@@ -38,6 +39,7 @@ HERO:Jon_Snow a HERO:Main_Character;
 
 #### Daenerys_Targaryen ####
 HERO:Daenerys_Targaryen a HERO:Main_Character;
+	a sem:Actor ;
 	HERO:father HERO:Aerys_II_Targaryen ;
 	HERO:mother HERO:Rhaella_Targaryen ;
 	HERO:sibling HERO:Viserys_Targaryen ;
@@ -54,6 +56,7 @@ HERO:Daenerys_Targaryen a HERO:Main_Character;
 
 #### Arya_Stark ####
 HERO:Arya_Stark a HERO:Main_Character;
+	a sem:Actor ;
 	HERO:father HERO:Eddard_Stark ;
 	HERO:mother HERO:Catelyn_Stark ;
 	HERO:sibling HERO:Sansa_Stark ;
@@ -69,6 +72,7 @@ HERO:Arya_Stark a HERO:Main_Character;
 
 #### Bran_Stark ####
 HERO:Bran_Stark a HERO:Main_Character;
+	a sem:Actor ;
 	HERO:father HERO:Eddard_Stark ;
 	HERO:mother HERO:Catelyn_Stark ;
 	HERO:sibling HERO:Sansa_Stark ;
@@ -81,6 +85,7 @@ HERO:Bran_Stark a HERO:Main_Character;
 
 #### Cersei_Lannister ####
 HERO:Cersei_Lannister a HERO:Main_Character;
+	a sem:Actor ;
 	HERO:father HERO:Tywin_Lannister ;
 	HERO:mother HERO:Joanna_Lannister ;
 	HERO:sibling HERO:Tyrion_Lannister ;
@@ -104,6 +109,7 @@ HERO:Cersei_Lannister a HERO:Main_Character;
 
 #### Tyrion_Lannister ####
 HERO:Tyrion_Lannister a HERO:Main_Character;
+	a sem:Actor ;
 	HERO:father HERO:Tywin_Lannister ;
 	HERO:mother HERO:Joanna_Lannister ;
 	HERO:sibling HERO:Cersei_Lannister ;
@@ -122,6 +128,7 @@ HERO:Tyrion_Lannister a HERO:Main_Character;
 
 #### Margaery_Tyrell ####
 HERO:Margaery_Tyrell a HERO:Main_Character;
+	a sem:Actor ;
 	HERO:father HERO:Mace_Tyrell ;
 	HERO:mother HERO:Alerie_Tyrell ;
 	HERO:sibling HERO:Loras_Tyrell ;
@@ -139,6 +146,7 @@ HERO:Margaery_Tyrell a HERO:Main_Character;
 
 #### Petyr_Baelish ####
 HERO:Petyr_Baelish a HERO:Main_Character;
+	a sem:Actor ;
 	HERO:spouse HERO:Lysa_Arryn ;
 	HERO:relative HERO:Robert_Arryn ;
 	HERO:occupation HERO:bureaucrat ;
@@ -152,6 +160,7 @@ HERO:Petyr_Baelish a HERO:Main_Character;
 
 #### Robert_Baratheon ####
 HERO:Robert_Baratheon a HERO:Main_Character;
+	a sem:Actor ;
 	HERO:father HERO:Steffon_Baratheon ;
 	HERO:mother HERO:Cassana_Baratheon ;
 	HERO:sibling HERO:Stannis_Baratheon ;
