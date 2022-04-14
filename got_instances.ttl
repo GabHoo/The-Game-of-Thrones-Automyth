@@ -30,7 +30,7 @@ HERO:Jon_Snow a HERO:Main_Character;
 	HERO:occupation HERO:soldier ;
 	HERO:occupation HERO:spy ;
 	HERO:title HERO:Lord ;
-	HERO:title HERO:fictional_king ;
+	HERO:title HERO:king ;
 	sem:Place_of_death HERO:Castle_Black ;
 	HERO:cause_of_death HERO:stabbing ;
 	HERO:battles_participated HERO:Battle_of_Castle_Black ;
@@ -51,7 +51,7 @@ HERO:Daenerys_Targaryen a HERO:Main_Character;
 	HERO:family HERO:House_Targaryen ;
 	HERO:occupation HERO:ruler ;
 	HERO:occupation HERO:revolutionary ;
-	HERO:title HERO:fictional_princess ;
+	HERO:title HERO:princess ;
 .
 
 #### Arya_Stark ####
@@ -66,7 +66,7 @@ HERO:Arya_Stark a HERO:Main_Character;
 	HERO:family HERO:House_Stark ;
 	HERO:occupation HERO:warrior ;
 	HERO:occupation HERO:mass_murderer ;
-	HERO:occupation HERO:fictional_vigilante ;
+	HERO:occupation HERO:vigilante ;
 	HERO:occupation HERO:assassin ;
 .
 
@@ -138,8 +138,9 @@ HERO:Margaery_Tyrell a HERO:Main_Character;
 	HERO:spouse HERO:Renly_Baratheon ;
 	HERO:spouse HERO:Tommen_Baratheon ;
 	HERO:family HERO:House_Tyrell ;
+	HERO:occupation HERO:influencer ;
 	HERO:title HERO:queen_consort ;
-	HERO:title HERO:fictional_queen ;
+	HERO:title HERO:queen ;
 	sem:Place_of_death HERO:Great_Sept_of_Baelor ;
 	HERO:cause_of_death HERO:explosion ;
 .
@@ -186,7 +187,7 @@ HERO:Robert_Baratheon a HERO:Main_Character;
 HERO:warrior a HERO:Occupation .
 HERO:Gendry a sem:Actor .
 HERO:soldier a HERO:Occupation .
-HERO:fictional_king a HERO:Title .
+HERO:king a HERO:Title .
 HERO:Robert_Arryn a sem:Actor .
 HERO:Benjen_Stark a sem:Actor .
 HERO:House_Stark a HERO:House .
@@ -224,7 +225,7 @@ HERO:Robb_Stark a sem:Actor .
 HERO:Steffon_Baratheon a sem:Actor .
 HERO:Alerie_Tyrell a sem:Actor .
 HERO:Battle_of_the_Bastards a HERO:Battle .
-HERO:fictional_princess a HERO:Title .
+HERO:princess a HERO:Title .
 HERO:Rhaenys_Targaryen_daughter_of_Rhaegar a sem:Actor .
 HERO:Greyjoy_Rebellion a HERO:Battle .
 HERO:advisor a HERO:Occupation .
@@ -247,9 +248,9 @@ HERO:Daario_Naharis a sem:Actor .
 HERO:Battle_of_the_Blackwater a HERO:Battle .
 HERO:House_Lannister a HERO:House .
 HERO:Winterfell a sem:Place .
-HERO:fictional_vigilante a HERO:Occupation .
+HERO:vigilante a HERO:Occupation .
 HERO:procurer a HERO:Occupation .
-HERO:fictional_queen a HERO:Title .
+HERO:queen a HERO:Title .
 HERO:Joanna_Lannister a sem:Actor .
 HERO:Rhaella_Targaryen a sem:Actor .
 HERO:Tywin_Lannister a sem:Actor .
@@ -262,6 +263,7 @@ HERO:queen_regnant a HERO:Title .
 HERO:Lyarra_Stark a sem:Actor .
 HERO:Eddard_Stark a sem:Actor .
 HERO:squire a HERO:Occupation .
+HERO:influencer a HERO:Occupation .
 HERO:mass_murderer a HERO:Occupation .
 HERO:Catelyn_Stark a sem:Actor .
 HERO:Euron_Greyjoy a sem:Actor .

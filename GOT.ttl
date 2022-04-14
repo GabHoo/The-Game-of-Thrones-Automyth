@@ -23,8 +23,8 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
 
-@prefix : 		<http://visualdataweb.org/GoT/> .
-@base 			<http://visualdataweb.org/GoT/> .
+@prefix : 		<http://hero_ontology/> .
+@base 			<http://hero_ontology/> .
 
 #################################################################
 
@@ -85,6 +85,5 @@
 	rdfs:label "Occupation"@en .
 
 :Battle rdf:type owl:Class ;
-	rdfs:label "Battle"@en ;
-	rdfs:subClassOf sem:Event .
+	rdfs:label "Battle"@en .
 

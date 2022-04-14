@@ -3,6 +3,8 @@ from owlrl import DeductiveClosure, RDFS_Semantics
 import random, sys
 import sys
 from generator import random_pick
+import os
+import pandas as pd
 
 from scipy import rand
 
@@ -13,7 +15,6 @@ main_characters = {"Jon_Snow": "Q3183235",
                    "Cersei_Lannister": "Q3665163",
                    "Tyrion_Lannister" : "Q2076759",
                    "Margaery_Tyrell": "Q12900933",
-                   "Petyr_Baelish": "Q4360302",
                    "Robert_Baratheon" : "Q13634885"}
 
 def find_communities(weighted_input):
@@ -59,16 +60,49 @@ def comm_based_pick(ist_class, communities=None, hero=None, char_type=None, vill
 
     return random_pick(ist_class)
 
+def read_network_data():
+    edges = pd.read_csv("Network_of_Thrones/edges_subset.csv")
+    nodes = pd.read_csv("Network_of_Thrones/nodes_subset.csv")
+    return nodes, edges
+
+def relation_based_pick(edges, related_to_char, n):
+    related_to_char = related_to_char.split("/")[-1]
+    so = edges[edges.Source == related_to_char][["Target", "weight"]].rename({'Target': 'Relation'}, axis=1)
+    ta = edges[edges.Target == related_to_char][["Source", "weight"]].rename({'Source': 'Relation'}, axis=1)
+
+    relations = so.append(ta).sort_values(by="weight", ascending=False)[:n]
+    related_character = random.choices(list(relations["Relation"]), weights=list(relations["weight"]))
+    return URIRef('http://hero_ontology/' + related_character[0])
+
+
+def instantiate_ordinary_world(g, fixed):
+    ordinary_world_template = Template("""SELECT ?occupation ?house ?title WHERE {
+                                      HERO:$hero HERO:occupation ?occupation.
+                                      HERO:$hero HERO:family ?house .
+                                      HERO:$hero HERO:title ?title}""")
+
+    qres = g.query(ordinary_world_template.substitute({'hero': fixed["Hero"].split("/")[-1]}))
+    fixed["Occupation"] = random.choice([row.occupation for row in qres])
+    fixed["House"] = random.choice([row.house for row in qres])
+    fixed["Title"] = random.choice([row.title for row in qres])
 
 def main(argv, arc):
+    method = "community"
+
     g = Graph(base="http://test.com/ns#")
     g.parse("./Event_ontology.ttl")
+    g.parse("./GOT.ttl")
+    g.parse("./GOT_instances.ttl")
     print(len(g))
     HERO = Namespace("http://hero_ontology/")
     sem = Namespace("http://semanticweb.cs.vu.nl/2009/11/sem/")
     DeductiveClosure(RDFS_Semantics).expand(g)
 
-    communities = find_communities("query-result.csv")
+    if method == "community":
+        communities = find_communities("query-result.csv")
+    else:
+        nodes, edges = read_network_data()
+        n = 3
 
     # getting the list of all properties that main class EVENT has. properties is a list of a basic properties
     properties = []  # list of tuples, bc we need its range too
@@ -87,12 +121,21 @@ def main(argv, arc):
     # FIXED ENTITES - THE STORY DOMAIN
     fixed = {}
     fixed["Hero"] = hero_pick()  # defining the hero of the story
-    fixed["Villain"] = comm_based_pick("http://semanticweb.cs.vu.nl/2009/11/sem/Actor", communities, fixed["Hero"], "Villain")
     fixed["EnemyPower"] = random_pick("http://hero_ontology/EnemyPower")
     fixed["HeroPower"] = random_pick("http://hero_ontology/HeroPower")
-    fixed["HeroAlly"] = comm_based_pick("http://semanticweb.cs.vu.nl/2009/11/sem/Actor", communities, fixed["Hero"], "Ally")
-    fixed["VillainAlly"] = comm_based_pick("http://semanticweb.cs.vu.nl/2009/11/sem/Actor", communities, fixed["Hero"], "Villain_Ally", fixed["Villain"])
     fixed["ThreatTarget"] = random_pick("http://hero_ontology/ThreatTarget")
+
+    if method == "community":
+        fixed["Villain"] = comm_based_pick("http://semanticweb.cs.vu.nl/2009/11/sem/Actor", communities, fixed["Hero"],
+                                           "Villain")
+        fixed["HeroAlly"] = comm_based_pick("http://semanticweb.cs.vu.nl/2009/11/sem/Actor", communities, fixed["Hero"], "Ally")
+        fixed["VillainAlly"] = comm_based_pick("http://semanticweb.cs.vu.nl/2009/11/sem/Actor", communities, fixed["Hero"], "Villain_Ally", fixed["Villain"])
+    else:
+        fixed["Villain"] = relation_based_pick(edges, fixed["Hero"], 10)
+        fixed["HeroAlly"] = relation_based_pick(edges, fixed["Hero"], n)
+        fixed["VillainAlly"] = relation_based_pick(edges, fixed["Villain"], n)
+
+    instantiate_ordinary_world(g, fixed)
 
     print("list of subevents is:", subEvents)
     for i in subEvents:
