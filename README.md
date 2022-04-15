@@ -1,5 +1,5 @@
 # Story-Generator
-Application to aumotically generates Game Of Thrones spin-off stories based on Knowledge Graphs.
+Application to automatically generates Game Of Thrones spin-off stories based on Knowledge Graphs.
 
 Stroy structure is inspired from the Hero Journey (https://skift.com/2016/10/28/the-heros-journey-a-human-framework-for-building-modern-travel-brands/)
 
