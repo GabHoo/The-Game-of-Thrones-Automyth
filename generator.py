@@ -3,7 +3,6 @@ from rdflib import Graph, RDFS, RDF, URIRef, Namespace, Literal, XSD
 from owlrl import DeductiveClosure, RDFS_Semantics
 import random, sys
 import sys
-from generator import add_labels, random_pick
 import os
 import pandas as pd
 from string import Template
