@@ -41,7 +41,7 @@ def find_communities(weighted_input):
 
   return communities_dict
 
-def hero_pick():
+def hero_pick(communities):
   return URIRef('http://hero_ontology/'+random.choice(list(communities.keys())))
 
 def comm_based_pick(ist_class, communities=None, hero=None, char_type=None, villain=None):
@@ -95,7 +95,7 @@ def main(argv, arc):
     g = Graph(base="http://test.com/ns#")
     g.parse("./Event_ontology.ttl")
     g.parse("./GOT.ttl")
-    g.parse("./GOT_instances.ttl")
+    g.parse("./got_instances.ttl")
     print(len(g))
     HERO = Namespace("http://hero_ontology/")
     sem = Namespace("http://semanticweb.cs.vu.nl/2009/11/sem/")
@@ -103,6 +103,7 @@ def main(argv, arc):
 
     if method == "community":
         communities = find_communities("query-result.csv")
+        
     else:
         nodes, edges = read_network_data()
         n = 3
@@ -123,7 +124,7 @@ def main(argv, arc):
 
     # FIXED ENTITES - THE STORY DOMAIN
     fixed = {}
-    fixed["Hero"] = hero_pick()  # defining the hero of the story
+    fixed["Hero"] = hero_pick(communities)  # defining the hero of the story
     fixed["EnemyPower"] = random_pick("http://hero_ontology/EnemyPower")
     fixed["HeroPower"] = random_pick("http://hero_ontology/HeroPower")
     fixed["ThreatTarget"] = random_pick("http://hero_ontology/ThreatTarget")
@@ -153,8 +154,6 @@ def main(argv, arc):
         # THAN WE INSTANCIATE AND ADD TO STORY those that are common to every event
         for (p, r) in properties:  # property and range
             print(p)
-            # if(p==URIRef("http://semanticweb.cs.vu.nl/2009/11/sem/hasActor")):
-            # if(r==URIRef("http://hero_ontology/Hero")): #this is to make sure that the hero is always the same
             range_str = r.split('/')[-1]
             if (range_str in fixed):
                 print(range_str, "is in fixed dic?")
@@ -177,7 +176,7 @@ def main(argv, arc):
             else:
                 story.add((instance_i, s, random_pick(rand_range)))
 
-    story.serialize("./story.ttl")
+    story.serialize("./story_smart.ttl")
 
 
 if __name__ == '__main__':
