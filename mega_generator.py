@@ -161,7 +161,9 @@ def main(argv, arc):
         subEvents.append(s)
 
     story = Graph()  # creates the graph of the story
-
+    story.namespace_manager.bind('HERO', URIRef('http://hero_ontology/'))
+    story.namespace_manager.bind('sem', URIRef('http://semanticweb.cs.vu.nl/2009/11/sem/'))
+    
     # FIXED ENTITES - THE STORY DOMAIN
     fixed = {}
     fixed["Hero"] = random_pick("http://hero_ontology/Hero")
