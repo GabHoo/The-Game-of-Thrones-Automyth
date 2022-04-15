@@ -7,3 +7,5 @@ To generate a stroy, run the generator.py file.
 Script takes three possible heuristics ["community", "relation","random"], which represent three way of picking instances of the main charachters from a Game Of Thrones ontology. 
 
 Detailed Paper is hereby attatched.
+
+For the visualization, this Dashbord was used: https://datastudio.google.com/reporting/3e1887bb-c02d-4c74-8d74-a14b7399c524
