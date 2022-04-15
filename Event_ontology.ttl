@@ -141,12 +141,12 @@ HERO:Hero a rdfs:Class;
 	rdfs:subClassOf HERO:Main_Character.
 	
 HERO:Villain a rdfs:Class;
-	rdfs:subClassOf sem:Actor;
+	rdfs:subClassOf HERO:Main_Character;
     rdfs:label "Villain".
 
 
 HERO:HeroAlly a rdfs:Class;	
-	rdfs:subClassOf HERO:Main_Character.
+	rdfs:subClassOf sem:Actor.
 
 #HERO:HeroLover a rdfs:Class;
 #	rdfs:subClassOf HERO:HeroAlly.

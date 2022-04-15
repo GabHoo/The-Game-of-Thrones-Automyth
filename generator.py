@@ -13,13 +13,10 @@ def random_pick(ist_class):
         return(random.choice([Literal("true", datatype=XSD.boolean),Literal("false", datatype=XSD.boolean)]))
 
     g=Graph()
-    #g.parse("./instances_MOCK.ttl")
+    
     g.parse("./Event_ontology.ttl")
     g.parse("./got_instances.ttl")
-    g.parse("./all_instances.ttl")
-    g.parse("./GOT.ttl")
-    #g.parse("./instances_of_missing_classes.ttl")
-    #DeductiveClosure(RDFS_Semantics).expand(g) #CANT REALLY INFER other wise its a mess bc Mentor is subclass of a lot of stuff for example
+
 
     list_e=[]
     
@@ -67,7 +64,7 @@ def main(argv, arc):
     story = Graph() #creates the graph of the story
     story.namespace_manager.bind('HERO', URIRef('http://hero_ontology/'))
     story.namespace_manager.bind('sem', URIRef('http://semanticweb.cs.vu.nl/2009/11/sem/'))
-   # story.namespace_manager.normalizeUri(t)
+  
     #FIXED ENTITES - THE STORY DOMAIN
     fixed={}
     fixed["Hero"]=random_pick("http://hero_ontology/Hero") #defining the hero of the story
@@ -91,8 +88,7 @@ def main(argv, arc):
         #THAN WE INSTANCIATE AND ADD TO STORY those that are common to every event
         for (p,r) in properties: #property and range
             print(p)
-            #if(p==URIRef("http://semanticweb.cs.vu.nl/2009/11/sem/hasActor")): 
-            #if(r==URIRef("http://hero_ontology/Hero")): #this is to make sure that the hero is always the same
+            
             range_str=r.split('/')[-1]
             if( range_str in fixed):
                 print(range_str,"is in fixed dic?")
@@ -110,12 +106,12 @@ def main(argv, arc):
             rand_range=(random.choice(allranges))
             range_str=rand_range.split('/')[-1]  #pick one from the possible ranges
             if( range_str in fixed):
-                print(range_str,"is in fixed dic?")
+                print(range_str,"is in fixed dic")
                 story.add((instance_i, s,fixed[range_str]))
             else:
                 story.add((instance_i, s,random_pick(rand_range)))
 
-    story.parse('./all_instances.ttl')
+    story.parse("./got_instances.ttl") #this is to extract lablessz
     story.serialize("./story_random.ttl")
 
 
