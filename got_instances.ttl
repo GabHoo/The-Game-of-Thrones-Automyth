@@ -219,6 +219,8 @@ HERO:explosion a HERO:Cause_of_death .
 HERO:explosion rdfs:label "explosion".
 HERO:assassin a HERO:Occupation .
 HERO:assassin rdfs:label "assassin".
+HERO:influencer a HERO:Occupation .
+HERO:influencer rdfs:label "influencer".
 HERO:Aegon_Targaryen a sem:Actor .
 HERO:Aegon_Targaryen rdfs:label "Aegon Targaryen".
 HERO:House_Targaryen a HERO:House .
@@ -329,12 +331,12 @@ HERO:House_Lannister a HERO:House .
 HERO:House_Lannister rdfs:label "House Lannister".
 HERO:Winterfell a sem:Place .
 HERO:Winterfell rdfs:label "Winterfell".
-HERO:fictional_vigilante a HERO:Occupation .
-HERO:fictional_vigilante rdfs:label "fictional vigilante".
+HERO:vigilante a HERO:Occupation .
+HERO:vigilante rdfs:label "vigilante".
 HERO:procurer a HERO:Occupation .
 HERO:procurer rdfs:label "procurer".
-HERO:fictional_queen a HERO:Title .
-HERO:fictional_queen rdfs:label "fictional queen".
+HERO:queen a HERO:Title .
+HERO:queen rdfs:label "queen".
 HERO:Joanna_Lannister a sem:Actor .
 HERO:Joanna_Lannister rdfs:label "Joanna Lannister".
 HERO:Rhaella_Targaryen a sem:Actor .
@@ -561,6 +563,11 @@ HERO:evening a sem:Time.
 HERO:evening rdfs:label "evening".
 HERO:afternoon a sem:Time.
 HERO:afternoon rdfs:label "afternoon".
+HERO:Lady a HERO:Title.
+HERO:Lady  rdfs:label "Lady" .
+HERO:King a HERO:Title.
+HERO:King  rdfs:label "King".
+
 
 
 @prefix cidoc: <http://www8.informatik.uni-erlangen.de/IMMD8/Services/cidoc-crm/erlangen-crm_090330_5_0_1.owl#> .
