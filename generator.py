@@ -1,3 +1,4 @@
+from pyrsistent import s
 from rdflib import Graph, RDFS, RDF, URIRef, Namespace, Literal,XSD
 from owlrl import DeductiveClosure, RDFS_Semantics
 import random, sys
@@ -39,11 +40,25 @@ def random_pick(ist_class):
     print("class is ",class_node," list is: ",list_e)
     return(random.choice(list_e)) 
 
+def add_labels(g,story):
+    sem = Namespace("http://semanticweb.cs.vu.nl/2009/11/sem/") 
+    event_inst=[] 
+    for s,p,o in story.triples((None,RDF.type,sem.Event)): 
+        
+        event_inst.append(s)
+    p
+    for e in event_inst:
+        for s,o,p in story.triples((e, None, None)):
+            
+            story+=g.triples((p,RDFS.label,None))
+
+    
 
 def main(argv, arc):
     
     g=Graph(base="http://test.com/ns#")
     g.parse("./Event_ontology.ttl")
+    g.parse("./got_instances.ttl")
     print(len(g))
     HERO = Namespace("http://hero_ontology/")
     sem = Namespace("http://semanticweb.cs.vu.nl/2009/11/sem/")
@@ -111,8 +126,10 @@ def main(argv, arc):
             else:
                 story.add((instance_i, s,random_pick(rand_range)))
 
-    story.parse("./got_instances.ttl") #this is to extract lablessz
+    #story.parse("./got_instances.ttl") #this is to extract lablessz
+    add_labels(g,story)
     story.serialize("./story_random.ttl")
+
 
 
 
