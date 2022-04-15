@@ -116,7 +116,7 @@ def main(argv, arc):
                 story.add((instance_i, s,random_pick(rand_range)))
 
     story.parse('./all_instances.ttl')
-    story.serialize("./story.ttl")
+    story.serialize("./story_random.ttl")
 
 
 
