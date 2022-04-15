@@ -8,7 +8,7 @@
 #### Jon_Snow ####
 				
 HERO:Jon_Snow a HERO:Main_Character;
-	rdfs:label "Jon_Snow";
+	rdfs:label "Jon Snow";
 	a sem:Actor ;
 	HERO:father HERO:Rhaegar_Targaryen ;
 	HERO:mother HERO:Lyanna_Stark ;
