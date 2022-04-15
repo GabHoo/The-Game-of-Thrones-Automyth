@@ -1,5 +1,5 @@
-# Story-Generator
-Application to automatically generates Game Of Thrones spin-off stories based on Knowledge Graphs.
+# The Game of Thrones Automyth 
+The Game of Thrones Automyth - A Knowledge Graph Based Spin-off Story Generator is an application to automatically generates Game Of Thrones spin-off stories based on Knowledge Graphs.
 
 Stroy structure is inspired from the Hero Journey (https://skift.com/2016/10/28/the-heros-journey-a-human-framework-for-building-modern-travel-brands/)
 
