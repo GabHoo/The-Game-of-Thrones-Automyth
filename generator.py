@@ -15,11 +15,11 @@ def random_pick(ist_class):
     g=Graph()
     #g.parse("./instances_MOCK.ttl")
     g.parse("./Event_ontology.ttl")
-    #g.parse("./got_instances.ttl")
+    g.parse("./got_instances.ttl")
     g.parse("./all_instances.ttl")
     g.parse("./GOT.ttl")
     #g.parse("./instances_of_missing_classes.ttl")
-    DeductiveClosure(RDFS_Semantics).expand(g) #CANT REALLY INFER other wise its a mess bc Mentor is subclass of a lot of stuff for example
+    #DeductiveClosure(RDFS_Semantics).expand(g) #CANT REALLY INFER other wise its a mess bc Mentor is subclass of a lot of stuff for example
 
     list_e=[]
     

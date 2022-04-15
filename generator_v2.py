@@ -94,16 +94,15 @@ def main(argv, arc):
 
     g = Graph(base="http://test.com/ns#")
     g.parse("./Event_ontology.ttl")
-    g.parse("./GOT.ttl")
+    #g.parse("./GOT.ttl")
     g.parse("./got_instances.ttl")
     print(len(g))
     HERO = Namespace("http://hero_ontology/")
     sem = Namespace("http://semanticweb.cs.vu.nl/2009/11/sem/")
-    DeductiveClosure(RDFS_Semantics).expand(g)
+    #DeductiveClosure(RDFS_Semantics).expand(g)
 
     if method == "community":
         communities = find_communities("query-result.csv")
-        
     else:
         nodes, edges = read_network_data()
         n = 3
@@ -154,6 +153,8 @@ def main(argv, arc):
         # THAN WE INSTANCIATE AND ADD TO STORY those that are common to every event
         for (p, r) in properties:  # property and range
             print(p)
+            # if(p==URIRef("http://semanticweb.cs.vu.nl/2009/11/sem/hasActor")):
+            # if(r==URIRef("http://hero_ontology/Hero")): #this is to make sure that the hero is always the same
             range_str = r.split('/')[-1]
             if (range_str in fixed):
                 print(range_str, "is in fixed dic?")
@@ -175,8 +176,8 @@ def main(argv, arc):
                 story.add((instance_i, s, fixed[range_str]))
             else:
                 story.add((instance_i, s, random_pick(rand_range)))
-
-    story.serialize("./story_smart.ttl")
+    story.parse('./all_instances.ttl')
+    story.serialize("./story_community.ttl")
 
 
 if __name__ == '__main__':
