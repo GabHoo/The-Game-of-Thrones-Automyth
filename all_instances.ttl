@@ -1,8 +1,9 @@
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xs:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix HERO: <http://hero_ontology/> .
+@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
 
-#ALL INSTANCES
 HERO:warrior a HERO:Occupation .
 HERO:warrior rdfs:label "warrior".
 HERO:Gendry a sem:Actor .
@@ -195,3 +196,171 @@ HERO:Petyr_Baelish a HERO:Main_Character.
 HERO:Petyr_Baelish rdfs:label "Petyr_Baelish".
 HERO:Robert_Baratheon a HERO:Main_Character.
 HERO:Robert_Baratheon rdfs:label "Robert_Baratheon".
+HERO:aggressive a HERO:Feelings.
+HERO:aggressive rdfs:label "aggressive".
+HERO:agonized a HERO:Feelings.
+HERO:agonized rdfs:label "agonized".
+HERO:angry a HERO:Feelings.
+HERO:angry rdfs:label "angry".
+HERO:annoyed a HERO:Feelings.
+HERO:annoyed rdfs:label "annoyed".
+HERO:arrogant a HERO:Feelings.
+HERO:arrogant rdfs:label "arrogant".
+HERO:awful a HERO:Feelings.
+HERO:awful rdfs:label "awful".
+HERO:bad a HERO:Feelings.
+HERO:bad rdfs:label "bad".
+HERO:bored a HERO:Feelings.
+HERO:bored rdfs:label "bored".
+HERO:confused a HERO:Feelings.
+HERO:confused rdfs:label "confused".
+HERO:crazy a HERO:Feelings.
+HERO:crazy rdfs:label "crazy".
+HERO:disappointed a HERO:Feelings.
+HERO:disappointed rdfs:label "disappointed".
+HERO:disbelieving a HERO:Feelings.
+HERO:disbelieving rdfs:label "disbelieving".
+HERO:disgusted a HERO:Feelings.
+HERO:disgusted rdfs:label "disgusted".
+HERO:enraged a HERO:Feelings.
+HERO:enraged rdfs:label "enraged".
+HERO:exhausted a HERO:Feelings.
+HERO:exhausted rdfs:label "exhausted".
+HERO:frightened a HERO:Feelings.
+HERO:frightened rdfs:label "frightened".
+HERO:frustrated a HERO:Feelings.
+HERO:frustrated rdfs:label "frustrated".
+HERO:grieving a HERO:Feelings.
+HERO:grieving rdfs:label "grieving".
+HERO:guilty a HERO:Feelings.
+HERO:guilty rdfs:label "guilty".
+HERO:hangover a HERO:Feelings.
+HERO:hangover rdfs:label "hangover".
+HERO:helpless a HERO:Feelings.
+HERO:helpless rdfs:label "helpless".
+HERO:horrified a HERO:Feelings.
+HERO:horrified rdfs:label "horrified".
+HERO:hurt a HERO:Feelings.
+HERO:hurt rdfs:label "hurt".
+HERO:hysterical a HERO:Feelings.
+HERO:hysterical rdfs:label "hysterical".
+HERO:idiotic a HERO:Feelings.
+HERO:idiotic rdfs:label "idiotic".
+HERO:indifferent a HERO:Feelings.
+HERO:indifferent rdfs:label "indifferent".
+HERO:lonely a HERO:Feelings.
+HERO:lonely rdfs:label "lonely".
+HERO:lovesick a HERO:Feelings.
+HERO:lovesick rdfs:label "lovesick".
+HERO:mad a HERO:Feelings.
+HERO:mad rdfs:label "mad".
+HERO:mischievous a HERO:Feelings.
+HERO:mischievous rdfs:label "mischievous".
+HERO:miserable a HERO:Feelings.
+HERO:miserable rdfs:label "miserable".
+HERO:nasty a HERO:Feelings.
+HERO:nasty rdfs:label "nasty".
+HERO:nervous a HERO:Feelings.
+HERO:nervous rdfs:label "nervous".
+HERO:puzzled a HERO:Feelings.
+HERO:puzzled rdfs:label "puzzled".
+HERO:sad a HERO:Feelings.
+HERO:sad rdfs:label "sad".
+HERO:sheepish a HERO:Feelings.
+HERO:sheepish rdfs:label "sheepish".
+HERO:shocked a HERO:Feelings.
+HERO:shocked rdfs:label "shocked".
+HERO:silly a HERO:Feelings.
+HERO:silly rdfs:label "silly".
+HERO:smug a HERO:Feelings.
+HERO:smug rdfs:label "smug".
+HERO:sorry a HERO:Feelings.
+HERO:sorry rdfs:label "sorry".
+HERO:strange a HERO:Feelings.
+HERO:strange rdfs:label "strange".
+HERO:stupid a HERO:Feelings.
+HERO:stupid rdfs:label "stupid".
+HERO:suspicious a HERO:Feelings.
+HERO:suspicious rdfs:label "suspicious".
+HERO:terrible a HERO:Feelings.
+HERO:terrible rdfs:label "terrible".
+HERO:jealous a HERO:Feelings.
+HERO:jealous rdfs:label "jealous".
+HERO:upset a HERO:Feelings.
+HERO:upset rdfs:label "upset".
+HERO:invisibility a HERO:Power.
+HERO:invisibility rdfs:label "invisibility".
+HERO:fireResistance a HERO:Power.
+HERO:fireResistance rdfs:label "fireResistance".
+HERO:pausingTime a HERO:Power.
+HERO:pausingTime rdfs:label "pausingTime".
+HERO:nightVision a HERO:Power.
+HERO:nightVision rdfs:label "nightVision".
+HERO:teleportation a HERO:Power.
+HERO:teleportation rdfs:label "teleportation".
+HERO:mindReading a HERO:Power.
+HERO:mindReading rdfs:label "mindReading".
+HERO:gravityControl a HERO:Power.
+HERO:gravityControl rdfs:label "gravityControl".
+HERO:erasingMemory a HERO:Power.
+HERO:erasingMemory rdfs:label "erasingMemory".
+HERO:slowingTime a HERO:Power.
+HERO:slowingTime rdfs:label "slowingTime".
+HERO:castle a HERO:ThreatTarget.
+HERO:castle rdfs:label "castle".
+HERO:lifestyle a HERO:ThreatTarget.
+HERO:lifestyle rdfs:label "lifestyle".
+HERO:peace a HERO:ThreatTarget.
+HERO:peace rdfs:label "peace".
+HERO:equality a HERO:ThreatTarget.
+HERO:equality rdfs:label "equality".
+HERO:freedom a HERO:ThreatTarget.
+HERO:freedom rdfs:label "freedom".
+HERO:happiness a HERO:ThreatTarget.
+HERO:happiness rdfs:label "happiness".
+HERO:grandmother a HERO:ThreatTarget.
+HERO:grandmother rdfs:label "grandmother".
+HERO:jewel a HERO:ThreatTarget.
+HERO:jewel rdfs:label "jewel".
+HERO:treasure a HERO:ThreatTarget.
+HERO:treasure rdfs:label "treasure".
+HERO:Title a HERO:ThreatTarget.
+HERO:Title rdfs:label "Title".
+HERO:House a HERO:ThreatTarget.
+HERO:House rdfs:label "House".
+HERO:HeroAlly a HERO:ThreatTarget.
+HERO:HeroAlly rdfs:label "HeroAlly".
+HERO:feast a HERO:Celebration .
+HERO:feast rdfs:label "feast".
+HERO:ball a HERO:Celebration .
+HERO:ball rdfs:label "ball".
+HERO:show a HERO:Celebration .
+HERO:show rdfs:label "show".
+HERO:fireworks a HERO:Celebration .
+HERO:fireworks rdfs:label "fireworks".
+HERO:game a HERO:Celebration .
+HERO:game rdfs:label "game".
+HERO:storytelling a HERO:Celebration .
+HERO:storytelling rdfs:label "storytelling".
+HERO:marriage a HERO:Celebration .
+HERO:marriage rdfs:label "marriage".
+HERO:concert a HERO:Celebration .
+HERO:concert rdfs:label "concert".
+HERO:sunrise a sem:Time.
+HERO:sunrise rdfs:label "sunrise".
+HERO:theMiddleOftheNight a sem:Time.
+HERO:theMiddleOftheNight rdfs:label "theMiddleOftheNight".
+HERO:christmas a sem:Time.
+HERO:christmas rdfs:label "christmas".
+HERO:easter a sem:Time.
+HERO:easter rdfs:label "easter".
+HERO:heroBirthday a sem:Time.
+HERO:heroBirthday rdfs:label "heroBirthday".
+HERO:villainBirthday a sem:Time.
+HERO:villainBirthday rdfs:label "villainBirthday".
+HERO:lunch a sem:Time.
+HERO:lunch rdfs:label "lunch".
+HERO:evening a sem:Time.
+HERO:evening rdfs:label "evening".
+HERO:afternoon a sem:Time.
+HERO:afternoon rdfs:label "afternoon".
