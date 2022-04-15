@@ -1,0 +1,220 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix ns1: <http://semanticweb.cs.vu.nl/2009/11/sem/>
+prefix ns2: <http://hero_ontology/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+select ?ID ?Event_01 ?Event_02 ?Event_03 ?Event_04 ?Event_05 ?Event_06 ?Event_07 ?Event_08 ?Event_09 ?Event_10 ?Event_11 ?Event_12
+from <http://example.com/story_community5>
+where {
+    BIND(concat('Community 5') as ?ID).
+    ns2:Event_01 ns1:hasActor ?Hero.
+    ?Hero  rdfs:label ?HeroName.
+    ns2:Event_01 ns2:hasOccupation ?Job.
+    ?Job   rdfs:label ?HeroJob.
+    ns2:Event_01 ns2:hasTitle ?Title.
+    ?Title rdfs:label ?TitleLabel.
+    ns2:Event_01 ns2:hasHouse ?Family.
+    ?Family rdfs:label ?FamilyLabel.
+
+    ns2:Event_01 ns1:hasTime ?Time1.
+    ?Time1 rdfs:label ?TimeLabel1.
+    ns2:Event_01 ns1:hasPlace ?Loc1.
+    ?Loc1 rdfs:label ?LocLabel1.
+
+
+    BIND(CONCAT('It was ',?TimeLabel1, ' in ', ?LocLabel1, '. ', ?HeroName, ' was a  ' ,?TitleLabel,' from the ', ?FamilyLabel ,  ' and worked as a ',?HeroJob ) AS ?Event_01).
+   ns2:Event_02 ns1:hasActor ?Hero.
+    ?Hero  rdfs:label ?HeroName.
+    ns2:Event_02 ns2:ThreatenedElement ?el.
+    ?el   rdfs:label ?ElementLabel.
+    ns2:Event_02 ns2:villain ?villain.
+    ?villain rdfs:label ?VillainLabel.
+
+    ns2:Event_02 ns1:hasTime ?Time2.
+    ?Time2 rdfs:label ?TimeLabel2.
+    ns2:Event_02 ns1:hasPlace ?Loc2.
+    ?Loc2 rdfs:label ?LocLabel2.
+
+    BIND(CONCAT('It was ',?TimeLabel2, ' in ' ,?LocLabel2,' when ', ?VillainLabel ,  ' threatened the  ',?ElementLabel, ' of ', ?HeroName ) AS ?Event_02).
+
+    ns2:Event_03 ns1:hasActor ?Hero.
+    ?Hero  rdfs:label ?HeroName.
+    ns2:Event_03 ns2:scaredOf ?EnemyPower.
+    ?EnemyPower rdfs:label ?EnemyPowerLabel.
+    ns2:Event_03 ns2:refusesToFight ?villain.
+    ?villain rdfs:label ?VillainLabel
+
+
+
+    BIND(CONCAT(?HeroName, ' was scared of the ' ,?EnemyPowerLabel,' power of ', ?VillainLabel ,  ' and refused to fight him ') AS ?Event_03).
+
+    ns2:Event_04 ns1:hasActor ?Hero.
+    ?Hero  rdfs:label ?HeroName.
+    ns2:Event_04 ns2:meetsMentor ?mentor.
+    ?mentor rdfs:label ?MentorLabel.
+    ns2:Event_04 ns2:powerLearned ?power.
+    ?power rdfs:label ?HeroPowerLabel.
+
+
+    ns2:Event_04 ns1:hasTime ?Time4.
+    ?Time4 rdfs:label ?TimeLabel4.
+    ns2:Event_04 ns1:hasPlace ?Loc4.
+    ?Loc4 rdfs:label ?LocLabel4
+
+
+    BIND(CONCAT('At ',?TimeLabel4, ' in ', ?LocLabel4, ',', ?HeroName, ' met ', ?MentorLabel,' . ',' From ', ?MentorLabel,' ', ?HeroName ,' learnt the power of ', ?HeroPowerLabel ) AS ?Event_04).
+
+    ns2:Event_05 ns1:hasActor ?Hero.
+    ?Hero  rdfs:label ?HeroName.
+    ns2:Event_05 ns2:travelsTo ?place.
+    ?place rdfs:label ?PlaceLabel.
+
+    ns2:Event_05 ns1:hasTime ?Time.
+    ?Time rdfs:label ?TimeLabel
+
+
+    BIND(CONCAT('At ',?TimeLabel,',', ?HeroName, 'finally gatherered his courage and travels to ', ?PlaceLabel )
+        AS ?Event_05).
+
+
+      ns2:Event_06 ns1:hasActor ?Hero.
+	?Hero  rdfs:label ?HeroName.
+	ns2:Event_06 ns2:meetsAlly ?ally.
+	?ally rdfs:label ?allyLabel.
+	ns2:Event_06 ns2:faces ?enemyally.
+	?enemyally rdfs:label ?enemyallyLabel.
+
+	ns2:Event_06 ns2:victory ?bool.
+
+ 	OPTIONAL { FILTER (?bool = true)
+    	BIND("Victory" AS ?v)}
+
+       OPTIONAL { FILTER (?bool = false)
+    	BIND("Loss" AS ?v)}
+
+
+
+	ns2:Event_06 ns1:hasTime ?Time6.
+	?Time6 rdfs:label ?TimeLabel6.
+	ns2:Event_06 ns1:hasPlace ?Loc6.
+	?Loc6 rdfs:label ?LocLabel6
+
+
+	BIND(CONCAT('At ',?TimeLabel6, ' in ', ?LocLabel6, ' ', ?HeroName, ' met ',?allyLabel, '.',' Together they formed an alliance and fought against ',?enemyallyLabel,'. It resulted in an epic ', ?v) AS ?Event_06).
+
+    ns2:Event_07 ns1:hasActor ?Hero.
+	?Hero  rdfs:label ?HeroName.
+
+	ns2:Event_07 ns2:feeling ?feeling.
+	?feeling rdfs:label ?FeelingLabel.
+
+	ns2:Event_07 ns1:hasTime ?Time7.
+	?Time7 rdfs:label ?TimeLabel7.
+	ns2:Event_07 ns1:hasPlace ?Loc7.
+	?Loc7 rdfs:label ?LocLabel7.
+
+
+	BIND(CONCAT('At ',?TimeLabel7, ' in ', ?LocLabel7, ', ', ?HeroName, ' felt ',?FeelingLabel, ' there was soon going to be another clash.') as ?Event_07).
+
+    ns2:Event_08 ns1:hasActor ?Hero.
+	?Hero  rdfs:label ?HeroName.
+
+	ns2:Event_08 ns2:enemyusespower ?po.
+	?po rdfs:label ?poLabel.
+
+	ns2:Event_08 ns2:herofights ?villain .
+	?villain rdfs:label ?viLabel.
+
+	ns2:Event_08 ns2:herousespower ?poH .
+	?poH rdfs:label ?poHLabel.
+
+	ns2:Event_08 ns2:herogetsinjured ?v8 .
+
+ 	OPTIONAL { FILTER (?v8 = true)
+    	BIND("Injured" AS ?str)}
+
+       OPTIONAL { FILTER (?v8 = false)
+    	BIND("Safe" AS ?str)}
+
+
+
+	ns2:Event_08 ns1:hasTime ?Time8.
+	?Time8 rdfs:label ?TimeLabel8.
+	ns2:Event_08 ns1:hasPlace ?Loc8.
+	?Loc8 rdfs:label ?LocLabel8.
+
+
+	BIND(CONCAT('At ',?TimeLabel8, ' in ', ?LocLabel8, ', ', ?HeroName,' faced ', ?viLabel,'. ', ?HeroName, ' used ', ?poHLabel,' powers, but ',?viLabel, ' used '      		 , ?poLabel,'. Our hero was ', ?str ) as ?Event_08).
+
+    ns2:Event_09 ns1:hasActor ?Hero.
+	?Hero  rdfs:label ?HeroName.
+
+	ns2:Event_09 ns2:saves ?target.
+	?target rdfs:label ?targetLabel.
+
+	ns2:Event_09 ns1:hasTime ?Time9.
+	?Time9 rdfs:label ?TimeLabel9.
+	ns2:Event_09 ns1:hasPlace ?Loc9.
+	?Loc9 rdfs:label ?LocLabel9
+
+
+	BIND(CONCAT('At ',?TimeLabel9, ' in ', ?LocLabel9, ', After a bloody fight, ',?HeroName,' finally saved ', ?targetLabel) as ?Event_09).
+
+    ?Hero  rdfs:label ?HeroName.
+
+	ns2:Event_10 ns2:chasedBy ?vil.
+	?vil rdfs:label ?vilLabel.
+
+	ns2:Event_10 ns1:hasTime ?Time10.
+	?Time10 rdfs:label ?TimeLabel10.
+	ns2:Event_10 ns1:hasPlace ?Loc10.
+	?Loc10 rdfs:label ?LocLabel10
+
+
+	BIND(CONCAT('At ',?TimeLabel10, ' in ', ?LocLabel10, ', ',?vilLabel, ' was hungry for revenge and chased down ', ?HeroName) as ?Event_10).
+
+    ns2:Event_11 ns1:hasActor ?Hero.
+	?Hero  rdfs:label ?HeroName.
+
+	ns2:Event_11 ns2:against ?vil.
+	?vil rdfs:label ?vilLabel.
+
+	ns2:Event_11 ns2:killsVillain ?v11 .
+
+ 	OPTIONAL { FILTER (?v11 = true)
+    	BIND(" won the duel and took the life of the villain" AS ?str11)}
+
+       OPTIONAL { FILTER (?v11 = false)
+    	BIND(" won the duel but spared the life of the villain" AS ?str11)}
+
+
+	ns2:Event_11 ns1:hasTime ?Time11.
+	?Time11 rdfs:label ?TimeLabel11.
+	ns2:Event_11 ns1:hasPlace ?Loc11.
+	?Loc11 rdfs:label ?LocLabel11
+
+
+	BIND(CONCAT('At ',?TimeLabel11, ' in ', ?LocLabel11, ',  our hero met ' ,?vilLabel, ' again, and they fought in the final battle. ',?HeroName, ?str11) as ?Event_11).
+
+    ns2:Event_12 ns1:hasActor ?Hero.
+	?Hero  rdfs:label ?HeroName.
+
+	ns2:Event_12 ns2:celebratesvictory ?cel.
+	?cel rdfs:label ?celLabel.
+
+	ns2:Event_12 ns2:partywith ?friend.
+	?friend rdfs:label ?friendLabel.
+
+
+
+	ns2:Event_12 ns1:hasTime ?Time12.
+	?Time12 rdfs:label ?TimeLabel12.
+	ns2:Event_12 ns1:hasPlace ?Loc12.
+	?Loc12 rdfs:label ?LocLabel12
+
+
+	BIND(CONCAT('At ',?TimeLabel12, ' in ', ?LocLabel12, ', ', ?HeroName, 'was finally safe, and celebrated with ' , ?friendLabel , ' by throwing a '  , ?celLabel
+ ) as ?Event_12).
+
+}
